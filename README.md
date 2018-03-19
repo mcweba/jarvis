@@ -7,7 +7,7 @@ Since the REST API of the MyStrom Button does not allow to make _POST_ requests 
 This server is based on _Node.js_ and _Express.js_
 
 ### Installation
-Copy the _adapter.js_ script from the _MyStromButtonAdapter_ folder to the following folder on the raspberry pi:
+Copy the _adapter.js_ script to the following folder on the raspberry pi:
 
 ```
 /home/openhabian/MyStromButtonAdapter
