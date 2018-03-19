@@ -53,3 +53,16 @@ the corresponding log files can be viewed with
 tail -f /var/log/mystrombuttonadapter.log
 tail -f /var/log/mystrombuttonadapter.err
 ```
+## MyStrom Button Configuration
+To configure the MyStrom Button REST API (https://mystrom.ch/wp-content/uploads/REST_API_WBP.txt) make the following request
+```
+POST http://[IP]/api/v1/device/[MAC]
+Body: single=post://openhabianpi:3000/button1/single&double=post://openhabianpi:3000/button1/double&long=post://openhabianpi:3000/button1/long&touch=post://openhabianpi:3000/button1/touch
+```
+The values
+* single=post://openhabianpi:3000/button1/single
+* double=post://openhabianpi:3000/button1/double
+* long=post://openhabianpi:3000/button1/long
+* touch=post://openhabianpi:3000/button1/touch
+
+point to the _MyStrom Button adapter_
