@@ -1,0 +1,37 @@
+rule "MyStrom Button 1: double click"
+
+when
+	Item MyStrom_Button1_Double received command
+then
+	logInfo("mystrom.rules", "button 1 double click: increase vol by 3")
+	//WZ_Sonos_Increase_Volume.sendCommand(3)
+	WZ_Sonos_Change_Volume.sendCommand(3)
+end
+
+rule "MyStrom Button 1: single click"
+
+when
+	Item MyStrom_Button1_Single received command
+then
+	logInfo("mystrom.rules", "button 1 single click: decrease vol by 3")
+	//WZ_Sonos_Decrease_Volume.sendCommand(3)
+	WZ_Sonos_Change_Volume.sendCommand(-3)
+end
+
+rule "MyStrom Button 1: touch event"
+
+when
+	Item MyStrom_Button1_Touch received command
+then
+	logInfo("mystrom.rules", "button 1 touch event: play SRF3")
+	WZ_Sonos_Change_Radio.sendCommand("SRF3")
+end
+
+rule "MyStrom Button 1: long click"
+
+when
+	Item MyStrom_Button1_Long received command
+then
+	logInfo("mystrom.rules", "button 1 long click: play SwissPop")
+	WZ_Sonos_Change_Radio.sendCommand("SwissPop")
+end

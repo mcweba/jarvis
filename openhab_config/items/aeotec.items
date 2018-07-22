@@ -1,0 +1,1 @@
+Number  WM01_Scene		"WallMote 01 Scene: [%s]"		<contact>	{channel="zwave:device:16220fd8ea7:node4:scene_number"}

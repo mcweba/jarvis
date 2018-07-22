@@ -1,0 +1,13 @@
+sitemap zuhause label="Zuhause" {
+
+    Frame label="OG" icon="firstfloor" {
+        Group item=OG_Levio
+        Group item=OG_Schlafzimmer
+    }
+
+    Frame label="EG" icon="groundfloor" {
+        Group item=EG_Kueche
+        Group item=EG_Wohnzimmer
+        Group item=EG_Garten
+    }
+}

@@ -1,0 +1,35 @@
+Group    Home                "Zuhause"           <house>
+
+Group    OG                  "OG"      <firstfloor>    (Home)
+Group    EG                  "EG"      <groundfloor>    (Home)
+
+Group    OG_Levio            "Zimmer Levio"      <boy_1>         (Home, OG)
+Group    OG_Schlafzimmer     "Schlafzimmer"      <bedroom>       (Home, OG)
+Group    EG_Kueche           "Küche"             <kitchen>       (Home, EG)
+Group    EG_Wohnzimmer       "Wohnzimmer"        <sofa>          (Home, EG)
+Group    EG_Garten       	 "Garten"        	 <terrace>     	 (Home, EG)
+
+Group:Switch:OR(ON, OFF)   gMotion   "Bewegungsmelder"   <motion>   (Home)
+Group:Switch:OR(ON, OFF)   gLight    "Licht"             <light>    (Home)
+
+String BD_Sonos_State                   "State [%s]"                <sonos_state>        (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:state"}
+String WZ_Sonos_Favorite                "Favorite [%s]"             <sonos_favorite>     (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:favorite"}
+Player WZ_Sonos_Control                 "Control"                   <sonos_control>      (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:control"}
+String WZ_Sonos_Radio                   "Radio [%s]"                <sonos_radio>        (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:radio"}
+
+String WZ_Sonos_CurrentAlbum            "Album [%s]"                <sonos_album>        (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:currentalbum"}
+String WZ_Sonos_CurrentArtist           "Artist [%s]"               <sonos_artist>       (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:currentartist"}
+String WZ_Sonos_CurrentTitle            "Title [%s]"                <sonos_title>        (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:currenttitle"}
+String WZ_Sonos_CurrentTrack            "Track [%s]"                <sonos_track>        (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:currenttrack"}
+Dimmer BD_Sonos_Volume                  "Volume"                    <soundvolume>        (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:volume"}
+Switch WZ_Sonos_Mute                    "Mute"                      <sonos_mute>         (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:mute"}
+
+String WZ_Sonos_Change_Radio
+Number WZ_Sonos_Change_Volume
+
+Switch   F2_Bedroom_Motion   "Bewegungsmelder"   <motion>        (OG_Schlafzimmer)      {channel="zwave:device:16220fd8ea7:node3:alarm_motion"}
+
+Switch 	 MyStromSwitch 			"Nachtlicht"				<light>				 (OG_Schlafzimmer)					{ http=">[ON:GET:http://192.168.1.207/relay?state=1] >[OFF:GET:http://192.168.1.207/relay?state=0]" }
+
+
+Switch TR_Beleuchtung 					"Party Modus"                      <light>         (EG_Garten)            {channel="zwave:device:16220fd8ea7:node5:switch_binary"}

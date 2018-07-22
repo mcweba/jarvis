@@ -1,0 +1,27 @@
+import org.joda.time.*
+import org.openhab.model.script.actions.Timer
+
+rule "Schlafzimmer Nachtlicht"
+
+when
+	Item F2_Bedroom_Motion changed from OFF to ON
+then
+	var Number hourOfDay = now.getHourOfDay
+	if ((hourOfDay >= 22)  || (hourOfDay <= 6)) {
+		logInfo("home.rules", "Nachtlicht aktiviert")
+		MyStromSwitch.sendCommand(ON)
+	    createTimer(now.plusSeconds(35)) [|
+	    	logInfo("home.rules", "Nachtlicht deaktiviert")
+	        MyStromSwitch.sendCommand(OFF)
+	    ]
+	} else {
+		logInfo("home.rules", "Schlafzimmer bewegung erkannt ohne Nachtlicht zu aktivieren")
+	}
+end
+
+rule "Nachtlicht periodisch deaktivieren"
+when 
+    Time cron "0 0/3 * * * ?"   // every 3 minutes
+then
+    MyStromSwitch.sendCommand(OFF)
+end

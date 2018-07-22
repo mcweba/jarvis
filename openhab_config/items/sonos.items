@@ -1,0 +1,8 @@
+String Levio_Sonos_Playlist                "Playlist [%s]"             <sonos_favorite>     (OG_Levio)            {channel="sonos:PLAY1:Levio:playlist"}
+Switch Levio_Sonos_ClearQueue              "ClearQueue"                <sonos_clearqueue>   (OG_Levio)            {channel="sonos:PLAY1:Levio:clearqueue"}
+Switch Levio_Sonos_Stop                    "Stop"                      <sonos_stop>         (OG_Levio)            {channel="sonos:PLAY1:Levio:stop", autoupdate="false"}
+Dimmer Levio_Sonos_Volume                  "Lautstärke"                <soundvolume>        (OG_Levio)            {channel="sonos:PLAY1:Levio:volume"}
+
+String Kueche_Sonos_Radio                   "Radio [%s]"                <sonos_radio>        (EG_Kueche)            {channel="sonos:PLAY1:Kueche:radio"}
+String Kueche_Sonos_Playlist                "Playlist [%s]"             <sonos_favorite>     (EG_Kueche)            {channel="sonos:PLAY1:Kueche:playlist"}
+Switch Kueche_Sonos_ClearQueue              "ClearQueue"             	<sonos_clearqueue>   (EG_Kueche)            {channel="sonos:PLAY1:Kueche:clearqueue"}

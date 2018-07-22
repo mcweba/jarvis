@@ -1,0 +1,65 @@
+rule "Wohnzimmer change radio station"
+
+when
+	Item WZ_Sonos_Change_Radio received command
+then
+	if (BD_Sonos_State.state == "PLAYING") {
+		logInfo("sonos.rules", "stopping radio in Wohnzimmer")
+		sendCommand(WZ_Sonos_Control, "PAUSE")
+	} else {
+	  BD_Sonos_Volume.sendCommand(3)
+		if (WZ_Sonos_Change_Radio.state == "SRF3") {
+			logInfo("sonos.rules", "changing radio state in Wohnzimmer to SRF 3")
+			WZ_Sonos_Radio.sendCommand("SRF 3 99.3 (Adult Contemporary)")
+		}
+
+		if (WZ_Sonos_Change_Radio.state == "SwissPop") {
+			logInfo("sonos.rules", "changing radio state in Wohnzimmer to SwissPop")
+			WZ_Sonos_Radio.sendCommand("Radio Swiss Pop (Top 40/Pop)")
+		}
+	}
+end
+
+rule "Wohnzimmer change volume"
+
+when
+	Item WZ_Sonos_Change_Volume received command
+then
+	var Number currentVolume = BD_Sonos_Volume.state as DecimalType
+	var Number change = WZ_Sonos_Change_Volume.state as DecimalType
+	var Number newVolume = currentVolume + change
+	logInfo("sonos.rules", "changing volume in Wohnzimmer from " + currentVolume + " to " + newVolume)
+	BD_Sonos_Volume.sendCommand(newVolume)
+end
+
+rule "Levio Wallmote"
+when
+    Item WM01_Scene received update
+then
+
+		Levio_Sonos_Volume.sendCommand(3)
+
+    logInfo("levio button", "Clearing Queue")
+    Levio_Sonos_ClearQueue.sendCommand("ON")
+    var int sceneNumber = WM01_Scene.state as DecimalType
+
+    switch (sceneNumber) {
+        case 1 : {
+            logInfo("levio button", "Scene " + sceneNumber + " - Chline Eisbär")
+						Levio_Sonos_Playlist.sendCommand("Levio - Chline Eisbär")
+        }
+				case 2 : {
+            logInfo("levio button", "Scene " + sceneNumber + " - Glöbeli")
+            Levio_Sonos_Playlist.sendCommand("Levio - Glöbeli")
+        }
+				case 3 : {
+						Levio_Sonos_Volume.sendCommand(13)
+            logInfo("levio button", "Scene " + sceneNumber + " - Feldberger Hof")
+            Levio_Sonos_Playlist.sendCommand("Levio - Feldbergerhof")
+        }
+				case 4 : {
+            logInfo("levio button", "Scene " + sceneNumber + " - Stop")
+            Levio_Sonos_Stop.sendCommand(OFF)
+        }
+    }
+end
