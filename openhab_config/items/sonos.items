@@ -6,3 +6,4 @@ Dimmer Levio_Sonos_Volume                  "Lautstärke"                <soundvo
 String Kueche_Sonos_Radio                   "Radio [%s]"                <sonos_radio>        (EG_Kueche)            {channel="sonos:PLAY1:Kueche:radio"}
 String Kueche_Sonos_Playlist                "Playlist [%s]"             <sonos_favorite>     (EG_Kueche)            {channel="sonos:PLAY1:Kueche:playlist"}
 Switch Kueche_Sonos_ClearQueue              "ClearQueue"             	<sonos_clearqueue>   (EG_Kueche)            {channel="sonos:PLAY1:Kueche:clearqueue"}
+Dimmer Kueche_Sonos_Volume                  "Lautstärke"                <soundvolume>        (EG_Kueche)            {channel="sonos:PLAY1:Kueche:volume"}
