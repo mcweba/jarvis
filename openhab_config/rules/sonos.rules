@@ -7,7 +7,8 @@ then
 		logInfo("sonos.rules", "stopping radio in Wohnzimmer")
 		sendCommand(WZ_Sonos_Control, "PAUSE")
 	} else {
-	  BD_Sonos_Volume.sendCommand(3)
+	  	BD_Sonos_Volume.sendCommand(11)
+	  	Kueche_Sonos_Volume.sendCommand(11)
 		if (WZ_Sonos_Change_Radio.state == "SRF3") {
 			logInfo("sonos.rules", "changing radio state in Wohnzimmer to SRF 3")
 			WZ_Sonos_Radio.sendCommand("SRF 3 99.3 (Adult Contemporary)")
@@ -37,7 +38,7 @@ when
     Item WM01_Scene received update
 then
 
-		Levio_Sonos_Volume.sendCommand(3)
+	Levio_Sonos_Volume.sendCommand(3)
 
     logInfo("levio button", "Clearing Queue")
     Levio_Sonos_ClearQueue.sendCommand("ON")
