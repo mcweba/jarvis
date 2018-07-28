@@ -3,6 +3,7 @@ sitemap zuhause label="Zuhause" {
     Frame label="OG" icon="firstfloor" {
         Group item=OG_Levio
         Group item=OG_Schlafzimmer
+        Group item=OG_Badezimmer
     }
 
     Frame label="EG" icon="groundfloor" {
