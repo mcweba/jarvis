@@ -54,7 +54,7 @@ then
             Levio_Sonos_Playlist.sendCommand("Levio - Glöbeli")
         }
 				case 3 : {
-						Levio_Sonos_Volume.sendCommand(13)
+			Levio_Sonos_Volume.sendCommand(10)
             logInfo("levio button", "Scene " + sceneNumber + " - Feldberger Hof")
             Levio_Sonos_Playlist.sendCommand("Levio - Feldbergerhof")
         }
