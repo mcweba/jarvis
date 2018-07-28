@@ -3,6 +3,15 @@ Switch Levio_Sonos_ClearQueue              "ClearQueue"                <sonos_cl
 Switch Levio_Sonos_Stop                    "Stop"                      <sonos_stop>         (OG_Levio)            {channel="sonos:PLAY1:Levio:stop", autoupdate="false"}
 Dimmer Levio_Sonos_Volume                  "Lautstärke"                <soundvolume>        (OG_Levio)            {channel="sonos:PLAY1:Levio:volume"}
 
+String Badezimmer_Sonos_State                   "State [%s]"                <sonos_state>        (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:state"}
+Player Badezimmer_Sonos_Control                 "Control"                   <sonos_control>      (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:control"}
+String Badezimmer_Sonos_Radio                   "Radio [%s]"                <sonos_radio>        (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:radio"}
+String Badezimmer_Sonos_Playlist                "Playlist [%s]"             <sonos_favorite>     (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:playlist"}
+Switch Badezimmer_Sonos_ClearQueue              "ClearQueue"             	<sonos_clearqueue>   (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:clearqueue"}
+Dimmer Badezimmer_Sonos_Volume                  "Lautstärke"                <soundvolume>        (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:volume"}
+String Badezimmer_Sonos_Change_Radio
+Number Badezimmer_Sonos_Change_Volume
+
 String Kueche_Sonos_Radio                   "Radio [%s]"                <sonos_radio>        (EG_Kueche)            {channel="sonos:PLAY1:Kueche:radio"}
 String Kueche_Sonos_Playlist                "Playlist [%s]"             <sonos_favorite>     (EG_Kueche)            {channel="sonos:PLAY1:Kueche:playlist"}
 Switch Kueche_Sonos_ClearQueue              "ClearQueue"             	<sonos_clearqueue>   (EG_Kueche)            {channel="sonos:PLAY1:Kueche:clearqueue"}
