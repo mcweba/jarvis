@@ -5,6 +5,7 @@ Group    EG                  "EG"      <groundfloor>    (Home)
 
 Group    OG_Levio            "Zimmer Levio"      <boy_1>         (Home, OG)
 Group    OG_Schlafzimmer     "Schlafzimmer"      <bedroom>       (Home, OG)
+Group    OG_Badezimmer     	 "Badezimmer"      	 <bath>       	 (Home, OG)
 Group    EG_Kueche           "Küche"             <kitchen>       (Home, EG)
 Group    EG_Wohnzimmer       "Wohnzimmer"        <sofa>          (Home, EG)
 Group    EG_Garten       	 "Garten"        	 <terrace>     	 (Home, EG)
