@@ -2,3 +2,7 @@ String MyStrom_Button1_Touch
 String MyStrom_Button1_Single
 String MyStrom_Button1_Double
 String MyStrom_Button1_Long
+
+String MyStrom_Button2_Single
+String MyStrom_Button2_Double
+String MyStrom_Button2_Long
