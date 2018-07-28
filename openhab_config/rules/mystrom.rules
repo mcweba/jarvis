@@ -35,3 +35,30 @@ then
 	logInfo("mystrom.rules", "button 1 long click: play SwissPop")
 	WZ_Sonos_Change_Radio.sendCommand("SwissPop")
 end
+
+rule "MyStrom Button 2: single click"
+
+when
+	Item MyStrom_Button2_Single received command
+then
+	logInfo("mystrom.rules", "button 2 single click: play SRF3")
+	Badezimmer_Sonos_Change_Radio.sendCommand("SRF3")
+end
+
+rule "MyStrom Button 2: long click"
+
+when
+	Item MyStrom_Button2_Long received command
+then
+	logInfo("mystrom.rules", "button 2 long click: play SwissPop")
+	Badezimmer_Sonos_Change_Radio.sendCommand("SwissPop")
+end
+
+rule "MyStrom Button 2: double click"
+
+when
+	Item MyStrom_Button2_Double received command
+then
+	logInfo("mystrom.rules", "button 2 double click: increase vol by 3")
+	Badezimmer_Sonos_Change_Volume.sendCommand(3)
+end
