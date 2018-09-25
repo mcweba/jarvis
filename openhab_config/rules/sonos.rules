@@ -83,18 +83,34 @@ then
             logInfo("levio button", "Scene " + sceneNumber + " - Chline Eisbär")
 						Levio_Sonos_Playlist.sendCommand("Levio - Chline Eisbär")
         }
-				case 2 : {
+        case 1.1 :  { // long press
+            logInfo("levio button", "Scene " + sceneNumber + " - Stop")
+			Levio_Sonos_Stop.sendCommand(OFF)
+        }		
+		case 2 : {
             logInfo("levio button", "Scene " + sceneNumber + " - Glöbeli")
             Levio_Sonos_Playlist.sendCommand("Levio - Glöbeli")
         }
-				case 3 : {
+        case 2.1 :  { // long press
+            logInfo("levio button", "Scene " + sceneNumber + " - Stop")
+			Levio_Sonos_Stop.sendCommand(OFF)
+        }		
+		case 3 : {
+            logInfo("levio button", "Scene " + sceneNumber + " - Glöbeli - Bauernhof")
+            Levio_Sonos_Playlist.sendCommand("Levio - Glöbeli - Bauernhof")
+        }
+        case 3.1 :  { // long press
+            logInfo("levio button", "Scene " + sceneNumber + " - Stop")
+			Levio_Sonos_Stop.sendCommand(OFF)
+        }		
+		case 4 : {
 			Levio_Sonos_Volume.sendCommand(10)
             logInfo("levio button", "Scene " + sceneNumber + " - Feldberger Hof")
             Levio_Sonos_Playlist.sendCommand("Levio - Feldbergerhof")
         }
-				case 4 : {
+        case 4.1 :  { // long press
             logInfo("levio button", "Scene " + sceneNumber + " - Stop")
-            Levio_Sonos_Stop.sendCommand(OFF)
-        }
+			Levio_Sonos_Stop.sendCommand(OFF)
+        }		
     }
 end
