@@ -18,10 +18,3 @@ then
 		logInfo("home.rules", "Schlafzimmer bewegung erkannt ohne Nachtlicht zu aktivieren")
 	}
 end
-
-rule "Nachtlicht periodisch deaktivieren"
-when 
-    Time cron "0 0/3 * * * ?"   // every 3 minutes
-then
-    MyStromSwitch.sendCommand(OFF)
-end

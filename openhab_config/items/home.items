@@ -2,6 +2,7 @@ Group    Home                "Zuhause"           <house>
 
 Group    OG                  "OG"      <firstfloor>    (Home)
 Group    EG                  "EG"      <groundfloor>    (Home)
+Group    ADM                 "ADM"      <settings>    (Home)
 
 Group    OG_Levio            "Zimmer Levio"      <boy_1>         (Home, OG)
 Group    OG_Schlafzimmer     "Schlafzimmer"      <bedroom>       (Home, OG)
@@ -28,9 +29,11 @@ Switch WZ_Sonos_Mute                    "Mute"                      <sonos_mute>
 String WZ_Sonos_Change_Radio
 Number WZ_Sonos_Change_Volume
 
-Switch   F2_Bedroom_Motion   "Bewegungsmelder"   <motion>        (OG_Schlafzimmer)      {channel="zwave:device:16220fd8ea7:node3:alarm_motion"}
+Switch   F2_Bedroom_Motion   "Bewegungsmelder"   <motion>        (OG_Schlafzimmer)      {channel="zwave:device:0d1b192a:node3:alarm_motion"}
 
 Switch 	 MyStromSwitch 			"Nachtlicht"				<light>				 (OG_Schlafzimmer)					{ http=">[ON:GET:http://192.168.1.207/relay?state=1] >[OFF:GET:http://192.168.1.207/relay?state=0]" }
 
 
-Switch TR_Beleuchtung 					"Party Modus"                      <light>         (EG_Garten)            {channel="zwave:device:16220fd8ea7:node5:switch_binary"}
+Switch TR_Beleuchtung 					"Party Modus"                      <light>         (EG_Garten)            {channel="zwave:device:0d1b192a:node5:switch_binary"}
+
+Number	TEST_MYSTROM_POWER	"Power Waschmaschine [%.1f]" <energy> (ADM_Sonoff)	{http="<[mystrom_waschmaschine:5000:JSONPATH($.power)]"}

@@ -11,4 +11,8 @@ sitemap zuhause label="Zuhause" {
         Group item=EG_Wohnzimmer
         Group item=EG_Garten
     }
+
+    Frame label="Administration" icon="settings" {
+        Group item=ADM_Sonoff
+    }    
 }
