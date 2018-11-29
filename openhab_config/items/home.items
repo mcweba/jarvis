@@ -33,7 +33,7 @@ Switch   F2_Bedroom_Motion   "Bewegungsmelder"   <motion>        (OG_Schlafzimme
 
 Switch 	 MyStromSwitch 			"Nachtlicht"				<light>				 (OG_Schlafzimmer)					{ http=">[ON:GET:http://192.168.1.207/relay?state=1] >[OFF:GET:http://192.168.1.207/relay?state=0]" }
 
-
-Switch TR_Beleuchtung 					"Party Modus"                      <light>         (EG_Garten)            {channel="zwave:device:0d1b192a:node5:switch_binary"}
-
-Number	TEST_MYSTROM_POWER	"Power Waschmaschine [%.1f]" <energy> (ADM_Sonoff)	{http="<[mystrom_waschmaschine:5000:JSONPATH($.power)]"}
+Switch TR_Beleuchtung   "Weihnachtsbeleuchtung"         <light>         (EG_Garten) { mqtt=">[Jarvis:cmnd/eg/terasse/POWER:command:ON:1],>[Jarvis:cmnd/eg/terasse/POWER:command:OFF:0],<[Jarvis:stat/eg/terasse/POWER:state:default]" }
+Number TR_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>      (EG_Garten) { mqtt="<[Jarvis:tele/eg/terasse/SENSOR:state:JS(fix_bme280_humidity.js)]" }
+Number TR_Temperatur    "Temperatur [%.1f °C]"          <temperature>   (EG_Garten) { mqtt="<[Jarvis:tele/eg/terasse/SENSOR:state:JS(fix_bme280_temperature.js)]" }
+Number TR_Pressure      "Luftdruck [%.1f hPa]"          <pressure>      (EG_Garten) { mqtt="<[Jarvis:tele/eg/terasse/SENSOR:state:JSONPATH($.BME280.Pressure)]" }

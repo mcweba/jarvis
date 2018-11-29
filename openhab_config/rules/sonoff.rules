@@ -1,0 +1,15 @@
+rule "Weihnachtsbeleuchtung einschalten"
+
+when   
+    Time cron "0 0 17 * * ?"
+then
+    TR_Beleuchtung.sendCommand(ON)
+end
+
+rule "Weihnachtsbeleuchtung ausschalten"
+
+when   
+    Time cron "0 30 0 * * ?"
+then
+    TR_Beleuchtung.sendCommand(OFF)
+end

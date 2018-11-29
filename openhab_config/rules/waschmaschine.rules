@@ -1,0 +1,37 @@
+val Number MODE_OFF = 0
+val Number MODE_STANDBY = 1
+val Number MODE_ACTIVE = 2
+val Number MODE_FINISHED = 3
+
+rule "Washingmachine Status"
+when
+    Item MyStrom_Waschmaschine_Power changed
+then
+    if (MyStrom_Waschmaschine_Power.state < 0.2) { 
+           postUpdate(MyStrom_Waschmaschine_State, MODE_OFF) 
+           logInfo("Waschmaschine", "MODE_OFF")
+    } else if (MyStrom_Waschmaschine_Power.state > 5) {
+            if (MyStrom_Waschmaschine_State.state != MODE_ACTIVE) {           
+                postUpdate(MyStrom_Waschmaschine_State, MODE_ACTIVE)        
+                logInfo("Waschmaschine", "MODE_ACTIVE")
+                sendTelegram("bot1", "Waschvorgang gestartet")
+            }
+    } else if (MyStrom_Waschmaschine_Power.state < 3) {
+           if (MyStrom_Waschmaschine_State.state == MODE_OFF) {
+              postUpdate(MyStrom_Waschmaschine_State, MODE_STANDBY)
+              logInfo("Waschmaschine", "MODE_STANDBY")
+    } else if (MyStrom_Waschmaschine_State.state == MODE_ACTIVE) {
+              postUpdate(MyStrom_Waschmaschine_State, MODE_FINISHED)
+              logInfo("Waschmaschine", "MODE_FINISHED")
+           }
+       }
+end
+
+rule "Washingmachine finished notification"
+when
+    Item MyStrom_Waschmaschine_State changed
+then
+    if (MyStrom_Waschmaschine_State.state == MODE_FINISHED) {
+        sendTelegram("MyMaHome_Marc", "Die Wäsche ist fertig.")
+    }
+end

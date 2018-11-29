@@ -1,9 +1,5 @@
 Group    ADM_Sonoff            "Sonoff"      <settings>         (Home, ADM)
 
-Switch SonoffSwitch "Sonoff Switch" <light> (ADM_Sonoff)    { mqtt=">[Jarvis:cmnd/eg/terasse/POWER:command:ON:1],>[Jarvis:cmnd/eg/terasse/POWER:command:OFF:0],<[Jarvis:stat/eg/terasse/POWER:state:default]" }
-String SonoffSwitch_State "SonoffSwitch status [%s]" <energy> (ADM_Sonoff) { mqtt="<[Jarvis:tele/eg/terasse/LWT:state:MAP(reachable.map)]" }
-Number SonoffSwitch_RSSI "SonoffSwitch: RSSI [%d %%]" <qualityofservice> (ADM_Sonoff)   { mqtt="<[Jarvis:tele/eg/terasse/STATE:state:JSONPATH($.Wifi.RSSI)]" }
-
-Number SonoffSwitch_HUMIDITY "Keller Luftfeuchtigkeit [%.1f %%]" <humidity> (ADM_Sonoff)   { mqtt="<[Jarvis:tele/eg/terasse/SENSOR:state:JS(fix_bme280_humidity.js)]" }
-Number SonoffSwitch_TEMP "Keller Temperatur [%.1f °C]" <temperature> (ADM_Sonoff)   { mqtt="<[Jarvis:tele/eg/terasse/SENSOR:state:JS(fix_bme280_temperature.js)]" }
-Number SonoffSwitch_PRESSURE "Keller Luftdruck [%.1f hPa]" <pressure> (ADM_Sonoff)   { mqtt="<[Jarvis:tele/eg/terasse/SENSOR:state:JSONPATH($.BME280.Pressure)]" }
+Switch TR_Sonoff_Switch "Sonoff Terasse" <light> (ADM_Sonoff)    { mqtt=">[Jarvis:cmnd/eg/terasse/POWER:command:ON:1],>[Jarvis:cmnd/eg/terasse/POWER:command:OFF:0],<[Jarvis:stat/eg/terasse/POWER:state:default]" }
+String TR_Sonoff_State "Sonoff Terasse Status [%s]" <energy> (ADM_Sonoff) { mqtt="<[Jarvis:tele/eg/terasse/LWT:state:MAP(reachable.map)]" }
+Number TR_Sonoff_RSSI "Sonoff Terasse WiFi Empfang [%d %%]" <qualityofservice> (ADM_Sonoff)   { mqtt="<[Jarvis:tele/eg/terasse/STATE:state:JSONPATH($.Wifi.RSSI)]" }
