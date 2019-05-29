@@ -14,7 +14,6 @@ then
             if (MyStrom_Waschmaschine_State.state != MODE_ACTIVE) {           
                 postUpdate(MyStrom_Waschmaschine_State, MODE_ACTIVE)        
                 logInfo("Waschmaschine", "MODE_ACTIVE")
-                sendTelegram("bot1", "Waschvorgang gestartet")
             }
     } else if (MyStrom_Waschmaschine_Power.state < 3) {
            if (MyStrom_Waschmaschine_State.state == MODE_OFF) {
@@ -33,5 +32,6 @@ when
 then
     if (MyStrom_Waschmaschine_State.state == MODE_FINISHED) {
         sendTelegram("MyMaHome_Marc", "Die Wäsche ist fertig.")
+        sendTelegram("MyMaHome_Myriam", "Die Wäsche ist fertig.")
     }
 end
