@@ -44,6 +44,8 @@ PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
 int value = 0;
+int delayLong = 1100;
+int delayShort = 450;
 
 void setup_wifi() {
 
@@ -89,6 +91,18 @@ void callback(char* topic, byte* payload, unsigned int length) {
     handleChannel(right_up, payload, length);
   } else if (isTopic(topic, "eg/essen/blinds/rechts/down")) {
     handleChannel(right_down, payload, length);
+  } else if (isTopic(topic, "eg/essen/blinds/alle/up")) {
+    handleChannel(left_up, payload, length);
+    delay(delayShort);
+    handleChannel(middle_up, payload, length);
+    delay(delayShort);
+    handleChannel(right_up, payload, length);
+  } else if (isTopic(topic, "eg/essen/blinds/alle/down")) {
+    handleChannel(left_down, payload, length);
+    delay(delayShort);
+    handleChannel(middle_down, payload, length);
+    delay(delayShort);
+    handleChannel(right_down, payload, length);
   }
 }
 
@@ -102,11 +116,11 @@ void handleChannel(int channel, byte* payload, unsigned int length) {
   Serial.print("] => ");
   if (!strncmp((char *)payload, "short", length)) {
     digitalWrite(channel, HIGH);
-    delay(350);
+    delay(delayShort);
     digitalWrite(channel, LOW);
   } else if (!strncmp((char *)payload, "long", length)) {
     digitalWrite(channel, HIGH);
-    delay(1000);
+    delay(delayLong);
     digitalWrite(channel, LOW);
   } else {
     Serial.print("unsupported");
@@ -135,6 +149,8 @@ void reconnect() {
       client.subscribe("eg/essen/blinds/mitte/down");
       client.subscribe("eg/essen/blinds/rechts/up");
       client.subscribe("eg/essen/blinds/rechts/down");
+      client.subscribe("eg/essen/blinds/alle/up");
+      client.subscribe("eg/essen/blinds/alle/down");      
 
     } else {
       Serial.print("failed, rc=");
