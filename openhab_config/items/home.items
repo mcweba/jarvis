@@ -2,14 +2,17 @@ Group    Home                "Zuhause"           <house>
 
 Group    OG                  "OG"      <firstfloor>    (Home)
 Group    EG                  "EG"      <groundfloor>    (Home)
+Group    UG                  "UG"      <cellar>    (Home)
 Group    ADM                 "ADM"      <settings>    (Home)
 
 Group    OG_Levio            "Zimmer Levio"      <boy_1>         (Home, OG)
 Group    OG_Schlafzimmer     "Schlafzimmer"      <bedroom>       (Home, OG)
 Group    OG_Badezimmer     	 "Badezimmer"      	 <bath>       	 (Home, OG)
 Group    EG_Kueche           "Küche"             <kitchen>       (Home, EG)
+Group    EG_Essen            "Essen"             <kitchen>       (Home, EG)
 Group    EG_Wohnzimmer       "Wohnzimmer"        <sofa>          (Home, EG)
 Group    EG_Garten       	 "Garten"        	 <terrace>     	 (Home, EG)
+Group    UG_Weinkeller     	 "Weinkeller"      	 <party>     	 (Home, UG)
 
 Group:Switch:OR(ON, OFF)   gMotion   "Bewegungsmelder"   <motion>   (Home)
 Group:Switch:OR(ON, OFF)   gLight    "Licht"             <light>    (Home)
@@ -33,7 +36,17 @@ Switch   F2_Bedroom_Motion   "Bewegungsmelder"   <motion>        (OG_Schlafzimme
 
 Switch 	 MyStromSwitch 			"Nachtlicht"				<light>				 (OG_Schlafzimmer)					{ http=">[ON:GET:http://192.168.1.207/relay?state=1] >[OFF:GET:http://192.168.1.207/relay?state=0]" }
 
-Switch TR_Beleuchtung   "Weihnachtsbeleuchtung"         <light>         (EG_Garten) { mqtt=">[Jarvis:cmnd/eg/terasse/POWER:command:ON:1],>[Jarvis:cmnd/eg/terasse/POWER:command:OFF:0],<[Jarvis:stat/eg/terasse/POWER:state:default]" }
-Number TR_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>      (EG_Garten) { mqtt="<[Jarvis:tele/eg/terasse/SENSOR:state:JS(fix_bme280_humidity.js)]" }
-Number TR_Temperatur    "Temperatur [%.1f °C]"          <temperature>   (EG_Garten) { mqtt="<[Jarvis:tele/eg/terasse/SENSOR:state:JS(fix_bme280_temperature.js)]" }
-Number TR_Pressure      "Luftdruck [%.1f hPa]"          <pressure>      (EG_Garten) { mqtt="<[Jarvis:tele/eg/terasse/SENSOR:state:JSONPATH($.BME280.Pressure)]" }
+Switch TR_Beleuchtung   "Party Modus"         <light>         (EG_Garten) { channel="mqtt:topic:mosquitto:sonoff_terasse:StatusSonoffTerasse" }
+Number TR_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>      (EG_Garten) { channel="mqtt:topic:mosquitto:sonoff_terasse:HumiditySonoffTerasse" }
+Number TR_Temperatur    "Temperatur [%.1f °C]"          <temperature>   (EG_Garten) { channel="mqtt:topic:mosquitto:sonoff_terasse:TemperatureSonoffTerasse" }
+Number TR_Pressure      "Luftdruck [%.1f hPa]"          <pressure>      (EG_Garten) { channel="mqtt:topic:mosquitto:sonoff_terasse:PressureSonoffTerasse" }
+
+String EZ_Store_Links <rollershutter>
+String EZ_Store_Mitte <rollershutter>
+String EZ_Store_Rechts <rollershutter>
+String EZ_Store_Group <rollershutter>
+
+Switch WK_Lueftung            "Lüftung"         <fan>         (UG_Weinkeller) { channel="mqtt:topic:mosquitto:sonoff_weinkeller:StatusSonoffWeinkeller" }
+Number WK_Humidity            "Luftfeuchtigkeit [%.1f %%]"    <humidity>      (UG_Weinkeller) { channel="mqtt:topic:mosquitto:sonoff_weinkeller:HumiditySonoffWeinkeller" }
+Number WK_Temperatur          "Temperatur innen [%.1f °C]"          <temperature_hot>   (UG_Weinkeller) { channel="mqtt:topic:mosquitto:sonoff_weinkeller:TemperatureSonoffWeinkeller" }
+Number WK_Temperatur_Aussen   "Temperatur aussen [%.1f °C]"          <temperature_cold>   (UG_Weinkeller) { channel="mqtt:topic:mosquitto:sonoff_terasse:TemperatureSonoffTerasse" }

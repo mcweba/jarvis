@@ -1,0 +1,24 @@
+Thing mqtt:topic:mosquitto:sonoff_terasse  "MQTT Thing: Sonoff Terasse" (mqtt:broker:mosquitto) @ "Terasse"
+{
+    Channels:
+        Type number : RSSISonoffTerasse "RSSI" [ stateTopic="tele/eg/terasse/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI" ]
+        Type string : UptimeSonoffTerasse "Uptime" [ stateTopic="tele/eg/terasse/STATE", transformationPattern="JSONPATH:$.Uptime" ]
+        Type string : FirmwareSonoffTerasse "Firmware" [ stateTopic="tele/eg/terasse/INFO1", transformationPattern="JSONPATH:$.Version" ]
+        Type switch : StatusSonoffTerasse "EIN/AUS" [ stateTopic="stat/eg/terasse/POWER", commandTopic="cmnd/eg/terasse/POWER" ]
+        Type switch : ReachableSonoffTerasse "Reachable" [ stateTopic="tele/eg/terasse/LWT", transformationPattern="MAP:reachable.map" ]
+        Type number : PressureSonoffTerasse "Pressure" [ stateTopic="tele/eg/terasse/SENSOR", transformationPattern="JSONPATH:$.BME280.Pressure" ]
+        Type number : HumiditySonoffTerasse "Humidity" [ stateTopic="tele/eg/terasse/SENSOR", transformationPattern="JS:fix_bme280_humidity.js" ]
+        Type number : TemperatureSonoffTerasse "Temperature" [ stateTopic="tele/eg/terasse/SENSOR", transformationPattern="JS:fix_bme280_temperature.js" ]
+}
+
+Thing mqtt:topic:mosquitto:sonoff_weinkeller  "MQTT Thing: Sonoff Weinkeller" (mqtt:broker:mosquitto) @ "Weinkeller"
+{
+    Channels:
+        Type number : RSSISonoffWeinkeller "RSSI" [ stateTopic="tele/ug/weinkeller/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI" ]
+        Type string : UptimeSonoffWeinkeller "Uptime" [ stateTopic="tele/ug/weinkeller/STATE", transformationPattern="JSONPATH:$.Uptime" ]
+        Type string : FirmwareSonoffWeinkeller "Firmware" [ stateTopic="tele/ug/weinkeller/INFO1", transformationPattern="JSONPATH:$.Version" ]
+        Type switch : StatusSonoffWeinkeller "EIN/AUS" [ stateTopic="stat/ug/weinkeller/POWER", commandTopic="cmnd/ug/weinkeller/POWER" ]
+        Type switch : ReachableSonoffWeinkeller "Reachable" [ stateTopic="tele/ug/weinkeller/LWT", transformationPattern="MAP:reachable.map" ]
+        Type number : HumiditySonoffWeinkeller "Humidity" [ stateTopic="tele/ug/weinkeller/SENSOR", transformationPattern="JS:fix_bme280_humidity.js" ]
+        Type number : TemperatureSonoffWeinkeller "Temperature" [ stateTopic="tele/ug/weinkeller/SENSOR", transformationPattern="JS:fix_bme280_temperature.js" ]
+}

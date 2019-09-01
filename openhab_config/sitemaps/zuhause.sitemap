@@ -8,9 +8,19 @@ sitemap zuhause label="Zuhause" {
 
     Frame label="EG" icon="groundfloor" {
         Group item=EG_Kueche
+        Group item=EG_Essen {
+            Switch item=EZ_Store_Links label="Links" mappings=[DOWN="Runter", TILT_DOWN="K. Runter", TILT_UP="K. Hoch", UP="Hoch"]
+            Switch item=EZ_Store_Mitte label="Mitte" mappings=[DOWN="Runter", TILT_DOWN="K. Runter", TILT_UP="K. Hoch", UP="Hoch"]
+            Switch item=EZ_Store_Rechts label="Rechts" mappings=[DOWN="Runter", TILT_DOWN="K. Runter", TILT_UP="K. Hoch", UP="Hoch"]
+            Switch item=EZ_Store_Group label="Alle" mappings=[DOWN="Runter", UP="Hoch"]
+        }
         Group item=EG_Wohnzimmer
-        Group item=EG_Garten
+        Group item=EG_Garten  
     }
+
+    Frame label="UG" icon="cellar" {
+        Group item=UG_Weinkeller  
+    }    
 
     Frame label="Administration" icon="settings" {
         Group item=ADM_Sonoff

@@ -1,5 +1,13 @@
 Group    ADM_Sonoff            "Sonoff"      <settings>         (Home, ADM)
 
-Switch TR_Sonoff_Switch "Sonoff Terasse" <light> (ADM_Sonoff)    { mqtt=">[Jarvis:cmnd/eg/terasse/POWER:command:ON:1],>[Jarvis:cmnd/eg/terasse/POWER:command:OFF:0],<[Jarvis:stat/eg/terasse/POWER:state:default]" }
-String TR_Sonoff_State "Sonoff Terasse Status [%s]" <energy> (ADM_Sonoff) { mqtt="<[Jarvis:tele/eg/terasse/LWT:state:MAP(reachable.map)]" }
-Number TR_Sonoff_RSSI "Sonoff Terasse WiFi Empfang [%d %%]" <qualityofservice> (ADM_Sonoff)   { mqtt="<[Jarvis:tele/eg/terasse/STATE:state:JSONPATH($.Wifi.RSSI)]" }
+Switch TR_Sonoff_Switch "Sonoff Terasse" <light> (ADM_Sonoff)    { channel="mqtt:topic:mosquitto:sonoff_terasse:StatusSonoffTerasse" }
+Switch TR_Sonoff_State "Sonoff Terasse Status" <energy> (ADM_Sonoff) { channel="mqtt:topic:mosquitto:sonoff_terasse:ReachableSonoffTerasse" }
+Number TR_Sonoff_RSSI "Sonoff Terasse WiFi Empfang [%d %%]" <qualityofservice> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_terasse:RSSISonoffTerasse" }
+String TR_Sonoff_Uptime "Sonoff Terasse Uptime [%s]" <clock> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_terasse:UptimeSonoffTerasse" }
+String TR_Sonoff_Firmware "Sonoff Terasse Firmware [%s]" <firmware> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_terasse:FirmwareSonoffTerasse" }
+
+Switch WK_Sonoff_Switch "Sonoff Weinkeller" <light> (ADM_Sonoff)    { channel="mqtt:topic:mosquitto:sonoff_weinkeller:StatusSonoffWeinkeller" }
+Switch WK_Sonoff_State "Sonoff Weinkeller Status" <energy> (ADM_Sonoff) { channel="mqtt:topic:mosquitto:sonoff_weinkeller:ReachableSonoffWeinkeller" }
+Number WK_Sonoff_RSSI "Sonoff Weinkeller WiFi Empfang [%d %%]" <qualityofservice> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_weinkeller:RSSISonoffWeinkeller" }
+String WK_Sonoff_Uptime "Sonoff Weinkeller Uptime [%s]" <clock> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_weinkeller:UptimeSonoffWeinkeller" }
+String WK_Sonoff_Firmware "Sonoff Weinkeller Firmware [%s]" <firmware> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_weinkeller:FirmwareSonoffWeinkeller" }

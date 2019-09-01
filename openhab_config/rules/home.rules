@@ -1,6 +1,13 @@
 import org.joda.time.*
 import org.openhab.model.script.actions.Timer
 
+val logzz= [ GenericItem s |
+    logInfo("lambda", s.state.toString)
+    s.state.toString + " logged"
+]
+
+val actions=getActions("mqtt","mqtt:broker:mosquitto")
+
 rule "Schlafzimmer Nachtlicht"
 
 when
@@ -17,4 +24,108 @@ then
 	} else {
 		logInfo("home.rules", "Schlafzimmer bewegung erkannt ohne Nachtlicht zu aktivieren")
 	}
+end
+
+rule "MQTT Store Links"
+
+when
+	Item EZ_Store_Links received update
+then
+    switch EZ_Store_Links.state.toString  {
+        case "DOWN": {
+            logInfo("home.rules", "*** storen links goes down ***")
+			actions.publishMQTT("eg/essen/blinds/links/down", "long")
+        }
+        case "TILT_DOWN": {
+            logInfo("home.rules", "*** storen links tilt down ***")
+            actions.publishMQTT("eg/essen/blinds/links/down", "short")
+        }
+        case "TILT_UP": {
+            logInfo("home.rules", "*** storen links tilt up ***")
+            actions.publishMQTT("eg/essen/blinds/links/up", "short")
+        }
+        case "UP": {
+            logInfo("home.rules", "*** storen links goes up ***")
+            actions.publishMQTT("eg/essen/blinds/links/up", "long")
+        }
+        default: {
+            logInfo("home.rules", "*** storen links ???? ***")
+        }
+    }
+end
+
+rule "MQTT Store Mitte"
+
+when
+	Item EZ_Store_Mitte received update
+then
+    switch EZ_Store_Mitte.state.toString  {
+        case "DOWN": {
+            logInfo("home.rules", "*** storen mitte goes down ***")
+			actions.publishMQTT("eg/essen/blinds/mitte/down", "long")
+        }
+        case "TILT_DOWN": {
+            logInfo("home.rules", "*** storen mitte tilt down ***")
+            actions.publishMQTT("eg/essen/blinds/mitte/down", "short")
+        }
+        case "TILT_UP": {
+            logInfo("home.rules", "*** storen mitte tilt up ***")
+            actions.publishMQTT("eg/essen/blinds/mitte/up", "short")
+        }
+        case "UP": {
+            logInfo("home.rules", "*** storen mitte goes up ***")
+            actions.publishMQTT("eg/essen/blinds/mitte/up", "long")
+        }
+        default: {
+            logInfo("home.rules", "*** storen mitte ???? ***")
+        }
+    }
+end
+
+rule "MQTT Store Rechts"
+
+when
+	Item EZ_Store_Rechts received update
+then
+    switch EZ_Store_Rechts.state.toString  {
+        case "DOWN": {
+            logInfo("home.rules", "*** storen rechts goes down ***")
+			actions.publishMQTT("eg/essen/blinds/rechts/down", "long")
+        }
+        case "TILT_DOWN": {
+            logInfo("home.rules", "*** storen rechts tilt down ***")
+            actions.publishMQTT("eg/essen/blinds/rechts/down", "short")
+        }
+        case "TILT_UP": {
+            logInfo("home.rules", "*** storen rechts tilt up ***")
+            actions.publishMQTT("eg/essen/blinds/rechts/up", "short")
+        }
+        case "UP": {
+            logInfo("home.rules", "*** storen rechts goes up ***")
+            actions.publishMQTT("eg/essen/blinds/rechts/up", "long")
+        }
+        default: {
+            logInfo("home.rules", "*** storen rechts ???? ***")
+        }
+    }
+end
+
+rule "MQTT Store Alle"
+
+when
+	Item EZ_Store_Group received update
+then
+    switch EZ_Store_Group.state.toString  {
+        case "DOWN": {
+            logInfo("home.rules", "*** storen group goes down ***")
+            actions.publishMQTT("eg/essen/blinds/alle/down", "long")
+        }
+        case "UP": {
+            logInfo("home.rules", "*** storen group goes up ***")
+            actions.publishMQTT("eg/essen/blinds/alle/up", "long")
+        }
+        default: {
+            logInfo("home.rules", "*** storen alle ???? ***")
+        }
+    }
 end
