@@ -13,3 +13,30 @@
 // then
 //     TR_Beleuchtung.sendCommand(OFF)
 // end
+
+rule "Weinkeller Lüftung"
+
+when
+	Item WK_Temperatur_Innen changed or Item WK_Temperatur_Aussen changed
+then
+
+    if(WK_Lueftung_Automatik.state == OFF) {
+        return;
+    }
+
+	var Number tempInnen = WK_Temperatur_Innen.state as DecimalType
+	var Number tempAussen = WK_Temperatur_Aussen.state as DecimalType
+	logInfo("sonoff.rules", "Weinkeller innen: " + tempInnen + "°C, aussen: " + tempAussen + "°C")
+
+    if(tempInnen > tempAussen && tempInnen > 14){
+        if(WK_Lueftung.state == OFF){
+            logInfo("sonoff.rules", "Weinkeller Lüftung: ON")
+            WK_Lueftung.sendCommand(ON)
+        }
+    } else {
+        if(WK_Lueftung.state == ON){
+            logInfo("sonoff.rules", "Weinkeller Lüftung: OFF")
+            WK_Lueftung.sendCommand(OFF)
+        }        
+    }
+end

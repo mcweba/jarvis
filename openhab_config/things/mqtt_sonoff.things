@@ -20,5 +20,5 @@ Thing mqtt:topic:mosquitto:sonoff_weinkeller  "MQTT Thing: Sonoff Weinkeller" (m
         Type switch : StatusSonoffWeinkeller "EIN/AUS" [ stateTopic="stat/ug/weinkeller/POWER", commandTopic="cmnd/ug/weinkeller/POWER" ]
         Type switch : ReachableSonoffWeinkeller "Reachable" [ stateTopic="tele/ug/weinkeller/LWT", transformationPattern="MAP:reachable.map" ]
         Type number : HumiditySonoffWeinkeller "Humidity" [ stateTopic="tele/ug/weinkeller/SENSOR", transformationPattern="JS:fix_bme280_humidity.js" ]
-        Type number : TemperatureSonoffWeinkeller "Temperature" [ stateTopic="tele/ug/weinkeller/SENSOR", transformationPattern="JS:fix_bme280_temperature.js" ]
+        Type number : TemperatureSonoffWeinkeller "Temperature" [ stateTopic="tele/ug/weinkeller/SENSOR", transformationPattern="JSONPATH:$.BME280.Temperature" ]
 }

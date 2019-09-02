@@ -46,7 +46,8 @@ String EZ_Store_Mitte <rollershutter>
 String EZ_Store_Rechts <rollershutter>
 String EZ_Store_Group <rollershutter>
 
+Switch WK_Lueftung_Automatik  "Automatik"         <none>         (UG_Weinkeller)
 Switch WK_Lueftung            "Lüftung"         <fan>         (UG_Weinkeller) { channel="mqtt:topic:mosquitto:sonoff_weinkeller:StatusSonoffWeinkeller" }
 Number WK_Humidity            "Luftfeuchtigkeit [%.1f %%]"    <humidity>      (UG_Weinkeller) { channel="mqtt:topic:mosquitto:sonoff_weinkeller:HumiditySonoffWeinkeller" }
-Number WK_Temperatur          "Temperatur innen [%.1f °C]"          <temperature_hot>   (UG_Weinkeller) { channel="mqtt:topic:mosquitto:sonoff_weinkeller:TemperatureSonoffWeinkeller" }
+Number WK_Temperatur_Innen    "Temperatur innen [%.1f °C]"          <temperature_hot>   (UG_Weinkeller) { channel="mqtt:topic:mosquitto:sonoff_weinkeller:TemperatureSonoffWeinkeller" }
 Number WK_Temperatur_Aussen   "Temperatur aussen [%.1f °C]"          <temperature_cold>   (UG_Weinkeller) { channel="mqtt:topic:mosquitto:sonoff_terasse:TemperatureSonoffTerasse" }
