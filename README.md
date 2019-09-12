@@ -66,3 +66,31 @@ The values
 * touch=post://openhabianpi:3000/button1/touch
 
 point to the _MyStrom Button adapter_
+
+## Zigbee2mqtt
+### Installation
+See documentation about installation on [www.zigbee2mqtt.io](https://www.zigbee2mqtt.io)
+
+### Configuration
+The config file is
+```
+/opt/zigbee2mqtt/data/configuration.yaml
+```
+
+### Running as service
+Starting zigbee2mqtt
+```
+sudo systemctl start zigbee2mqtt
+```
+
+Stopping zigbee2mqtt
+```
+sudo systemctl stop zigbee2mqtt
+```
+View the log of zigbee2mqtt
+```
+sudo journalctl -u zigbee2mqtt.service -f
+```
+
+### MQTT topics and message structure
+See [documentation](https://www.zigbee2mqtt.io/information/mqtt_topics_and_message_structure.html)
