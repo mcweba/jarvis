@@ -1,0 +1,23 @@
+Thing mqtt:topic:mosquitto:waterleak_waschkueche  "MQTT Thing: Waterleak Waschküche" (mqtt:broker:mosquitto) @ "Waschküche"
+{
+    Channels:
+        Type contact : WaterleakAlarmWaschkueche "Alarm" [ stateTopic="zigbee2mqtt/waterleak_waschkueche", transformationPattern="JS:getZigbeeLeak2Contact.js"]
+        Type number  : WaterleakVoltageWaschkueche "Voltage" [ stateTopic="zigbee2mqtt/waterleak_waschkueche", transformationPattern="JSONPATH:$.voltage"]
+        Type number  : WaterleakBatteryWaschkueche "Battery" [ stateTopic="zigbee2mqtt/waterleak_waschkueche", transformationPattern="JSONPATH:$.battery"]
+}
+
+Thing mqtt:topic:mosquitto:door_garderobe  "MQTT Thing: Türsensor Garderobe" (mqtt:broker:mosquitto) @ "Garderobe"
+{
+    Channels:
+        Type contact : DoorContactGarderobe "Contact" [ stateTopic="zigbee2mqtt/door_garderobe", transformationPattern="JS:getZigbeeContact2Contact.js"]
+        Type number  : DoorLinkQualityGarderobe "Link Quality" [ stateTopic="zigbee2mqtt/door_garderobe", transformationPattern="JSONPATH:$.linkquality"]
+}
+
+Thing mqtt:topic:mosquitto:aqara_weinkeller "MQTT Thing: Temperatursensor Weinkeller" (mqtt:broker:mosquitto) @ "Weinkeller"
+{
+    Channels:
+        Type number : AqaraTemperatureWeinkeller "Temperature" [ stateTopic="zigbee2mqtt/aqara_weinkeller", transformationPattern="JSONPATH:$.temperature"]
+        Type number : AqaraHumidityWeinkeller "Humidity" [ stateTopic="zigbee2mqtt/aqara_weinkeller", transformationPattern="JSONPATH:$.humidity"]
+        Type number : AqaraPressureWeinkeller "Pressure" [ stateTopic="zigbee2mqtt/aqara_weinkeller", transformationPattern="JSONPATH:$.pressure"]
+        Type number : AqaraBatteryWeinkeller "Battery" [ stateTopic="zigbee2mqtt/aqara_weinkeller", transformationPattern="JSONPATH:$.battery"]
+}

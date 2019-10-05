@@ -1,0 +1,9 @@
+Thing mqtt:topic:mosquitto:shelly_garderobe  "MQTT Thing: Shelly Garderobe" (mqtt:broker:mosquitto) @ "Garderobe"
+{
+    Channels:
+        Type number : RSSIShellyGarderobe "RSSI" [ stateTopic="tele/eg/garderobe/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI" ]
+        Type string : UptimeShellyGarderobe "Uptime" [ stateTopic="tele/eg/garderobe/STATE", transformationPattern="JSONPATH:$.Uptime" ]
+        Type string : FirmwareShellyGarderobe "Firmware" [ stateTopic="tele/eg/garderobe/INFO1", transformationPattern="JSONPATH:$.Version" ]
+        Type switch : StatusShellyGarderobe "EIN/AUS" [ stateTopic="stat/eg/garderobe/POWER", commandTopic="cmnd/eg/garderobe/POWER" ]
+        Type switch : ReachableShellyGarderobe "Reachable" [ stateTopic="tele/eg/garderobe/LWT", transformationPattern="MAP:reachable.map" ]
+}

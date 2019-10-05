@@ -1,0 +1,13 @@
+rule "Licht Garderobe"
+
+when
+	Item GR_Aqara_Contact changed
+then
+    logInfo("lighting.rules", "Türe Garderobe: " + GR_Aqara_Contact.state)
+    
+    if(GR_Aqara_Contact.state == OPEN){
+        GR_Shelly_Switch.sendCommand(ON)
+    } else {
+        GR_Shelly_Switch.sendCommand(OFF)
+    }
+end

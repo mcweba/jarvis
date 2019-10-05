@@ -24,5 +24,6 @@ sitemap zuhause label="Zuhause" {
 
     Frame label="Administration" icon="settings" {
         Group item=ADM_Sonoff
+        Group item=ADM_Shelly
     }    
 }
