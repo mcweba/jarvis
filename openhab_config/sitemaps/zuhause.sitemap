@@ -20,6 +20,7 @@ sitemap zuhause label="Zuhause" {
 
     Frame label="UG" icon="cellar" {
         Group item=UG_Weinkeller  
+        Group item=UG_Heizung  
     }    
 
     Frame label="Administration" icon="settings" {

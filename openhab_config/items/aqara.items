@@ -1,3 +1,4 @@
-Contact GR_Aqara_Contact      "Türe Garderobe [%s]"              <contact>    (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:door_garderobe:DoorContactGarderobe" }
+Contact GR_Aqara_Contact            "Türe Garderobe [%s]"                   <contact>    (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:door_garderobe:DoorContactGarderobe" }
 
-Number WK_Aqara_Temperatur_Innen    "Temperatur innen (aqara) [%.1f °C]"          <temperature_hot>   (UG_Weinkeller) { channel="mqtt:topic:mosquitto:aqara_weinkeller:AqaraTemperatureWeinkeller" }
+Number WK_Aqara_Temperatur_Innen    "Temperatur innen (aqara) [%.1f °C]"    <temperature_hot>   (UG_Weinkeller) { channel="mqtt:topic:mosquitto:aqara_weinkeller:AqaraTemperatureWeinkeller" }
+Number HZ_Aqara_Wasseralarm         "Heizung Wasseralarm [%s]"              <contact>   (UG_Heizung) { channel="mqtt:topic:mosquitto:waterleak_heizung:WaterleakAlarmHeizung" }

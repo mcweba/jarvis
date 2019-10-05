@@ -1,9 +1,9 @@
-Thing mqtt:topic:mosquitto:waterleak_waschkueche  "MQTT Thing: Waterleak Waschküche" (mqtt:broker:mosquitto) @ "Waschküche"
+Thing mqtt:topic:mosquitto:waterleak_heizung  "MQTT Thing: Waterleak Heizung" (mqtt:broker:mosquitto) @ "Heizung"
 {
     Channels:
-        Type contact : WaterleakAlarmWaschkueche "Alarm" [ stateTopic="zigbee2mqtt/waterleak_waschkueche", transformationPattern="JS:getZigbeeLeak2Contact.js"]
-        Type number  : WaterleakVoltageWaschkueche "Voltage" [ stateTopic="zigbee2mqtt/waterleak_waschkueche", transformationPattern="JSONPATH:$.voltage"]
-        Type number  : WaterleakBatteryWaschkueche "Battery" [ stateTopic="zigbee2mqtt/waterleak_waschkueche", transformationPattern="JSONPATH:$.battery"]
+        Type contact : WaterleakAlarmHeizung "Alarm" [ stateTopic="zigbee2mqtt/waterleak_waschkueche", transformationPattern="JS:getZigbeeLeak2Contact.js"]
+        Type number  : WaterleakVoltageHeizung "Voltage" [ stateTopic="zigbee2mqtt/waterleak_waschkueche", transformationPattern="JSONPATH:$.voltage"]
+        Type number  : WaterleakBatteryHeizung "Battery" [ stateTopic="zigbee2mqtt/waterleak_waschkueche", transformationPattern="JSONPATH:$.battery"]
 }
 
 Thing mqtt:topic:mosquitto:door_garderobe  "MQTT Thing: Türsensor Garderobe" (mqtt:broker:mosquitto) @ "Garderobe"

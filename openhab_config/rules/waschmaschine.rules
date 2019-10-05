@@ -35,3 +35,14 @@ then
         sendTelegram("MyMaHome_Myriam", "Die Wäsche ist fertig.")
     }
 end
+
+rule "Wasseralarm Heizung Notifikation"
+when
+    Item HZ_Aqara_Wasseralarm changed
+then
+    if (HZ_Aqara_Wasseralarm.state == 1) {
+        logWarn("Heizung", "Wasseralarm in Heizung detected!")
+        sendTelegram("MyMaHome_Marc", "Achtung! Wasseralarm in Heizung!")
+        sendTelegram("MyMaHome_Myriam", "Achtung! Wasseralarm in Heizung!")
+    }
+end

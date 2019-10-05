@@ -13,6 +13,7 @@ Group    EG_Essen            "Essen"             <kitchen>       (Home, EG)
 Group    EG_Wohnzimmer       "Wohnzimmer"        <sofa>          (Home, EG)
 Group    EG_Garten       	 "Garten"        	 <terrace>     	 (Home, EG)
 Group    UG_Weinkeller     	 "Weinkeller"      	 <party>     	 (Home, UG)
+Group    UG_Heizung          "Heizung"      	 <fire>     	 (Home, UG)
 
 Group:Switch:OR(ON, OFF)   gMotion   "Bewegungsmelder"   <motion>   (Home)
 Group:Switch:OR(ON, OFF)   gLight    "Licht"             <light>    (Home)
