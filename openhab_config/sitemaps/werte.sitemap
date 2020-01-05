@@ -1,0 +1,18 @@
+sitemap werte label="Werte" {
+
+    Frame label="Klima" icon="settings" {
+        Text item=Levio_Aqara_Temperatur label="Levio [%.1f °C]"
+        Text item=Levio_Aqara_Humidity label="Levio [%.1f %%]"
+        Text item=Jara_Aqara_Temperatur label="Jara [%.1f °C]"
+        Text item=Jara_Aqara_Humidity label="Jara [%.1f %%]"
+        Text item=WK_Temperatur_Innen label="Weinkeller [%.1f °C]"
+        Text item=WK_Humidity label="Weinkeller [%.1f %%]"
+        Text item=TR_Temperatur label="Terasse [%.1f °C]"
+        Text item=TR_Humidity label="Terasse [%.1f %%]"
+    }   
+
+    Frame label="Administration" icon="settings" {
+        Group item=ADM_Sonoff
+        Group item=ADM_Shelly
+    }    
+}
