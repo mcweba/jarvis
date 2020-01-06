@@ -37,7 +37,7 @@ Switch   F2_Bedroom_Motion   "Bewegungsmelder"   <motion>        (OG_Schlafzimme
 
 Switch 	 MyStromSwitch 			"Nachtlicht"				<light>				 (OG_Schlafzimmer)					{ http=">[ON:GET:http://192.168.1.207/relay?state=1] >[OFF:GET:http://192.168.1.207/relay?state=0]" }
 
-Switch TR_Beleuchtung   "Party Modus"         <light>         (EG_Garten) { channel="mqtt:topic:mosquitto:sonoff_terasse:StatusSonoffTerasse" }
+Switch TR_Beleuchtung   "Xmas Modus"         <light>         (EG_Garten) { channel="mqtt:topic:mosquitto:sonoff_terasse:StatusSonoffTerasse" }
 Number TR_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>      (EG_Garten) { channel="mqtt:topic:mosquitto:sonoff_terasse:HumiditySonoffTerasse" }
 Number TR_Temperatur    "Temperatur [%.1f °C]"          <temperature>   (EG_Garten) { channel="mqtt:topic:mosquitto:sonoff_terasse:TemperatureSonoffTerasse" }
 Number TR_Pressure      "Luftdruck [%.1f hPa]"          <pressure>      (EG_Garten) { channel="mqtt:topic:mosquitto:sonoff_terasse:PressureSonoffTerasse" }

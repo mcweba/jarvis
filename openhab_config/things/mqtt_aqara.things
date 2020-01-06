@@ -13,11 +13,20 @@ Thing mqtt:topic:mosquitto:door_garderobe  "MQTT Thing: Türsensor Garderobe" (m
         Type number  : DoorLinkQualityGarderobe "Link Quality" [ stateTopic="zigbee2mqtt/door_garderobe", transformationPattern="JSONPATH:$.linkquality"]
 }
 
-Thing mqtt:topic:mosquitto:aqara_weinkeller "MQTT Thing: Temperatursensor Weinkeller" (mqtt:broker:mosquitto) @ "Weinkeller"
+Thing mqtt:topic:mosquitto:aqara_jara "MQTT Thing: Temperatursensor Jara" (mqtt:broker:mosquitto) @ "Jara"
 {
     Channels:
-        Type number : AqaraTemperatureWeinkeller "Temperature" [ stateTopic="zigbee2mqtt/aqara_weinkeller", transformationPattern="JSONPATH:$.temperature"]
-        Type number : AqaraHumidityWeinkeller "Humidity" [ stateTopic="zigbee2mqtt/aqara_weinkeller", transformationPattern="JSONPATH:$.humidity"]
-        Type number : AqaraPressureWeinkeller "Pressure" [ stateTopic="zigbee2mqtt/aqara_weinkeller", transformationPattern="JSONPATH:$.pressure"]
-        Type number : AqaraBatteryWeinkeller "Battery" [ stateTopic="zigbee2mqtt/aqara_weinkeller", transformationPattern="JSONPATH:$.battery"]
+        Type number : AqaraTemperatureJara "Temperature" [ stateTopic="zigbee2mqtt/aqara_jara", transformationPattern="JSONPATH:$.temperature"]
+        Type number : AqaraHumidityJara "Humidity" [ stateTopic="zigbee2mqtt/aqara_jara", transformationPattern="JSONPATH:$.humidity"]
+        Type number : AqaraPressureJara "Pressure" [ stateTopic="zigbee2mqtt/aqara_jara", transformationPattern="JSONPATH:$.pressure"]
+        Type number : AqaraBatteryJara "Battery" [ stateTopic="zigbee2mqtt/aqara_jara", transformationPattern="JSONPATH:$.battery"]
+}
+
+Thing mqtt:topic:mosquitto:aqara_levio "MQTT Thing: Temperatursensor Levio" (mqtt:broker:mosquitto) @ "Levio"
+{
+    Channels:
+        Type number : AqaraTemperatureLevio "Temperature" [ stateTopic="zigbee2mqtt/aqara_levio", transformationPattern="JSONPATH:$.temperature"]
+        Type number : AqaraHumidityLevio "Humidity" [ stateTopic="zigbee2mqtt/aqara_levio", transformationPattern="JSONPATH:$.humidity"]
+        Type number : AqaraPressureLevio "Pressure" [ stateTopic="zigbee2mqtt/aqara_levio", transformationPattern="JSONPATH:$.pressure"]
+        Type number : AqaraBatteryLevio "Battery" [ stateTopic="zigbee2mqtt/aqara_levio", transformationPattern="JSONPATH:$.battery"]
 }

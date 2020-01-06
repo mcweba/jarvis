@@ -1,18 +1,18 @@
-// rule "Weihnachtsbeleuchtung einschalten"
+//rule "Weihnachtsbeleuchtung einschalten"
 
-// when   
-//     Time cron "0 45 16 * * ?" or Time cron "0 0 6 * * ?"
-// then
-//     TR_Beleuchtung.sendCommand(ON)
-// end
+//when   
+//    Time cron "0 45 16 * * ?" or Time cron "0 0 6 * * ?"
+//then
+//    TR_Beleuchtung.sendCommand(ON)
+//end
 
-// rule "Weihnachtsbeleuchtung ausschalten"
+//rule "Weihnachtsbeleuchtung ausschalten"
 
-// when   
-//     Time cron "0 15 0 * * ?" or Time cron "0 0 8 * * ?"
-// then
-//     TR_Beleuchtung.sendCommand(OFF)
-// end
+//when   
+//    Time cron "0 15 0 * * ?" or Time cron "0 0 8 * * ?"
+//then
+//    TR_Beleuchtung.sendCommand(OFF)
+//end
 
 rule "Weinkeller Lüftung"
 
@@ -28,7 +28,7 @@ then
 	var Number tempAussen = WK_Temperatur_Aussen.state as DecimalType
 	logInfo("sonoff.rules", "Weinkeller innen: " + tempInnen + "°C, aussen: " + tempAussen + "°C")
 
-    if(tempInnen > tempAussen && tempInnen > 14){
+    if(tempInnen > tempAussen && tempInnen > 13.5){
         if(WK_Lueftung.state == OFF){
             logInfo("sonoff.rules", "Weinkeller Lüftung: ON")
             WK_Lueftung.sendCommand(ON)
