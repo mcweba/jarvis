@@ -11,6 +11,11 @@ sitemap werte label="Werte" {
         Text item=TR_Humidity label="Terasse [%.1f %%]"
     }   
 
+    Frame label="Entsorgung" icon="settings" {
+        Text item=Entsorgung_Bio label="Nächste Grünabfuhr: [%s]"
+        Text item=Entsorgung_Waste label="Nächste Kehrichtabfuhr: [%s]"
+    }       
+
     Frame label="Administration" icon="settings" {
         Group item=ADM_Sonoff
         Group item=ADM_Shelly

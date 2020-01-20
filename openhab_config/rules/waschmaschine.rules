@@ -3,6 +3,8 @@ val Number MODE_STANDBY = 1
 val Number MODE_ACTIVE = 2
 val Number MODE_FINISHED = 3
 
+var Boolean Wasseralarm_Notified = false
+
 rule "Washingmachine Status"
 when
     Item MyStrom_Waschmaschine_Power changed
@@ -40,9 +42,12 @@ rule "Wasseralarm Heizung Notifikation"
 when
     Item HZ_Aqara_Wasseralarm changed
 then
-    if (HZ_Aqara_Wasseralarm.state == 1) {
+    if (HZ_Aqara_Wasseralarm.state == 1 && Wasseralarm_Notified == false) {
         logWarn("Heizung", "Wasseralarm in Heizung detected!")
         sendTelegram("MyMaHome_Marc", "Achtung! Wasseralarm in Heizung!")
-        sendTelegram("MyMaHome_Myriam", "Achtung! Wasseralarm in Heizung!")
+        //sendTelegram("MyMaHome_Myriam", "Achtung! Wasseralarm in Heizung!")
+        Wasseralarm_Notified = true
+    } else if (HZ_Aqara_Wasseralarm.state == 0){
+        Wasseralarm_Notified = false
     }
 end

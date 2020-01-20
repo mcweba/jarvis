@@ -2,4 +2,4 @@ Number Levio_Aqara_Temperatur    "Temperatur [%.1f °C]"    <temperature_hot>   
 Number Levio_Aqara_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>    (ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_levio:AqaraHumidityLevio" }
 
 Number Jara_Aqara_Temperatur    "Temperatur [%.1f °C]"    <temperature_hot>   (ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_jara:AqaraTemperatureJara" }
-Number Jara_Aqara_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>    (ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_levio:AqaraHumidityJara" }
+Number Jara_Aqara_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>    (ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_jara:AqaraHumidityJara" }

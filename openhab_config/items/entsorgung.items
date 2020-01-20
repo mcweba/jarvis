@@ -1,0 +1,2 @@
+String Entsorgung_Bio   "Nächste Grünabfuhr: [%s]"                <calendar>        (Home)
+String Entsorgung_Waste   "Nächste Kehrichtabfuhr: [%s]"                <calendar>        (Home)

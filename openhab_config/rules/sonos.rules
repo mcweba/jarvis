@@ -92,7 +92,6 @@ then
         }		
 		case 2 : {
             logInfo("levio button", "Scene " + sceneNumber + " - Leo Lausemaus Spotify")
-			Levio_Sonos_Volume.sendCommand(10)
             Levio_Sonos_Playlist.sendCommand("Levio - Lausemaus Spotify")
         }
         case 2.1 :  { // long press

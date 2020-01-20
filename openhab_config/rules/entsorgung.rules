@@ -1,0 +1,51 @@
+rule "Entsorgungskalender Erinnerung"
+when
+    Time cron "0 30 18 1/1 * ? *"
+then
+    val Bdays = Ephemeris.getDaysUntil("BIO","/etc/openhab2/services/entsorgung.xml")
+    val Wdays = Ephemeris.getDaysUntil("WASTE","/etc/openhab2/services/entsorgung.xml")
+    logInfo("Entsorgung", "Bio : " + Bdays)
+    logInfo("Entsorgung", "Abfall : " + Wdays)
+
+    if(Bdays == 1){
+        sendTelegram("MyMaHome_Marc", "Morgen ist Grünabfuhr!")
+    }
+    if(Wdays == 1){
+        sendTelegram("MyMaHome_Marc", "Morgen ist Kehrichtabfuhr!")
+    }    
+end
+
+rule "Entsorgungskalender Anzeige"
+when
+	System started
+	or
+	Time is midnight    
+then
+    val Bdays = Ephemeris.getDaysUntil("BIO","/etc/openhab2/services/entsorgung.xml")
+    val Wdays = Ephemeris.getDaysUntil("WASTE","/etc/openhab2/services/entsorgung.xml")
+
+	val Bstring = 
+		if (Bdays >1){
+			"In "+Bdays+" Tagen"
+		}else{
+			if (Bdays == 1){
+				"Morgen"
+			}else {
+				"Heute"
+			}
+		}
+
+	val Wstring = 
+		if (Wdays >1){
+			"In "+Wdays+" Tagen"
+		}else{
+			if (Wdays == 1){
+				"Morgen"
+			}else {
+				"Heute"
+			}
+		}        
+
+    Entsorgung_Bio.postUpdate(Bstring)
+    Entsorgung_Waste.postUpdate(Wstring)
+end
