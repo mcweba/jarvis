@@ -13,6 +13,13 @@ Thing mqtt:topic:mosquitto:door_garderobe  "MQTT Thing: Türsensor Garderobe" (m
         Type number  : DoorLinkQualityGarderobe "Link Quality" [ stateTopic="zigbee2mqtt/door_garderobe", transformationPattern="JSONPATH:$.linkquality"]
 }
 
+Thing mqtt:topic:mosquitto:window_wc_eg  "MQTT Thing: Fenstersensor WC" (mqtt:broker:mosquitto) @ "WC"
+{
+    Channels:
+        Type contact : WindowContactToilet "Contact" [ stateTopic="zigbee2mqtt/aqara_wc_eg", transformationPattern="JS:getZigbeeContact2Contact.js"]
+        Type number  : WindowLinkQualityToilet "Link Quality" [ stateTopic="zigbee2mqtt/aqara_wc_eg", transformationPattern="JSONPATH:$.linkquality"]
+}
+
 Thing mqtt:topic:mosquitto:aqara_jara "MQTT Thing: Temperatursensor Jara" (mqtt:broker:mosquitto) @ "Jara"
 {
     Channels:

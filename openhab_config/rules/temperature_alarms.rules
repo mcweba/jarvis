@@ -1,0 +1,18 @@
+var Timer fenster_wc_timer = null
+
+rule "Fensteralarm WC EG"
+
+when
+	Item WC_Aqara_Contact changed
+then
+    if(WC_Aqara_Contact.state == OPEN){
+        logInfo("home.rules", "Fenster WC ist offen!")
+        fenster_wc_timer = createTimer( now.plusMinutes(15), [ |
+            logWarn("home.rules", "WC Fenster mehr als 15 Minuten offen")
+            sendTelegram("MyMaHome_Marc", "Achtung, WC Fenster ist noch offen!")
+            fenster_wc_timer = null
+        ])        
+    } else {
+        fenster_wc_timer?.cancel
+    }    
+end

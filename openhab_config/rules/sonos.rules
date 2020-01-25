@@ -84,7 +84,7 @@ then
     switch (sceneNumber) {
         case 1 : {
             logInfo("levio button", "Scene " + sceneNumber + " - Leo Lausemaus Weihnachten")
-						Levio_Sonos_Playlist.sendCommand("Levio - Lausemaus Weihnachten")
+			Levio_Sonos_Playlist.sendCommand("Levio - Lausemaus Weihnachten")
         }
         case 1.1 :  { // long press
             logInfo("levio button", "Scene " + sceneNumber + " - Stop")
