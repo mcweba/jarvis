@@ -1,3 +1,6 @@
 Contact GR_Aqara_Contact            "Türe Garderobe [%s]"                   <contact>    (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:door_garderobe:DoorContactGarderobe" }
 Contact WC_Aqara_Contact            "Fenster WC [%s]"                       <contact>    (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:window_wc_eg:WindowContactToilet" }
 Number HZ_Aqara_Wasseralarm         "Heizung Wasseralarm [%s]"              <contact>   (UG_Heizung) { channel="mqtt:topic:mosquitto:waterleak_heizung:WaterleakAlarmHeizung" }
+
+String Aqara_Opple_Battery          "Battery [%s]"                          <contact>   { channel="mqtt:topic:mosquitto:aqara_opple:AqaraOppleBattery" }
+String Aqara_Opple_Action           "Action [%s]"                           <contact>   { channel="mqtt:topic:mosquitto:aqara_opple:AqaraOppleAction" }

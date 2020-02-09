@@ -1,0 +1,21 @@
+button_1_single=SRF 3 99.3 (Adult Contemporary)
+button_1_double=Radio Swiss Pop (Top 40/Pop)
+
+button_2_single=Energy Bern
+button_2_double=Radio Freiburg 90.2 (Hit-Klassiker)
+
+button_3_single=Wohnen - Dinner
+button_3_double=Wohnen - Love
+button_3_hold=Wohnen - Kids
+
+button_4_single=Wohnen - Happy
+button_4_double=Wohnen - Guitar
+button_4_hold=Wohnen - Favoriten
+
+button_5_single=DECREASE (dummy)
+button_5_double=PREVIOUS
+button_5_hold=PLAY_PAUSE (dummy)
+
+button_6_single=INCREASE (dummy)
+button_6_double=NEXT
+button_6_hold=OFF

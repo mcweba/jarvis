@@ -1,10 +1,13 @@
+/*
+ * Currently not in use
+ */
+
 rule "MyStrom Button 1: double click"
 
 when
 	Item MyStrom_Button1_Double received command
 then
 	logInfo("mystrom.rules", "button 1 double click: increase vol by 3")
-	//WZ_Sonos_Increase_Volume.sendCommand(3)
 	WZ_Sonos_Change_Volume.sendCommand(3)
 end
 
@@ -14,7 +17,6 @@ when
 	Item MyStrom_Button1_Single received command
 then
 	logInfo("mystrom.rules", "button 1 single click: decrease vol by 3")
-	//WZ_Sonos_Decrease_Volume.sendCommand(3)
 	WZ_Sonos_Change_Volume.sendCommand(-3)
 end
 

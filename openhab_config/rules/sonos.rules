@@ -1,74 +1,6 @@
 import org.joda.time.*
 import org.openhab.model.script.actions.Timer
-
-rule "Wohnzimmer change radio station"
-
-when
-	Item WZ_Sonos_Change_Radio received command
-then
-	if (BD_Sonos_State.state == "PLAYING") {
-		logInfo("sonos.rules", "stopping radio in Wohnzimmer")
-		sendCommand(WZ_Sonos_Control, "PAUSE")
-	} else {
-	  	BD_Sonos_Volume.sendCommand(11)
-	  	Kueche_Sonos_Volume.sendCommand(11)
-		if (WZ_Sonos_Change_Radio.state == "SRF3") {
-			logInfo("sonos.rules", "changing radio state in Wohnzimmer to SRF 3")
-			WZ_Sonos_Radio.sendCommand("SRF 3 99.3 (Adult Contemporary)")
-		}
-
-		if (WZ_Sonos_Change_Radio.state == "SwissPop") {
-			logInfo("sonos.rules", "changing radio state in Wohnzimmer to SwissPop")
-			WZ_Sonos_Radio.sendCommand("Radio Swiss Pop (Top 40/Pop)")
-		}
-	}
-end
-
-rule "Wohnzimmer change volume"
-
-when
-	Item WZ_Sonos_Change_Volume received command
-then
-	var Number currentVolume = BD_Sonos_Volume.state as DecimalType
-	var Number change = WZ_Sonos_Change_Volume.state as DecimalType
-	var Number newVolume = currentVolume + change
-	logInfo("sonos.rules", "changing volume in Wohnzimmer from " + currentVolume + " to " + newVolume)
-	BD_Sonos_Volume.sendCommand(newVolume)
-end
-
-rule "Badezimmer change radio station"
-
-when
-	Item Badezimmer_Sonos_Change_Radio received command
-then
-	if (Badezimmer_Sonos_State.state == "PLAYING") {
-		logInfo("sonos.rules", "stopping radio in Badezimmer")
-		sendCommand(Badezimmer_Sonos_Control, "PAUSE")
-	} else {
-	  	Badezimmer_Sonos_Volume.sendCommand(8)
-		if (Badezimmer_Sonos_Change_Radio.state == "SRF3") {
-			logInfo("sonos.rules", "changing radio state in Badezimmer to SRF 3")
-			Badezimmer_Sonos_Radio.sendCommand("SRF 3 99.3 (Adult Contemporary)")
-		}
-
-		if (Badezimmer_Sonos_Change_Radio.state == "SwissPop") {
-			logInfo("sonos.rules", "changing radio state in Badezimmer to SwissPop")
-			Badezimmer_Sonos_Radio.sendCommand("Radio Swiss Pop (Top 40/Pop)")
-		}
-	}
-end
-
-rule "Badezimmer change volume"
-
-when
-	Item Badezimmer_Sonos_Change_Volume received command
-then
-	var Number currentVolume = Badezimmer_Sonos_Volume.state as DecimalType
-	var Number change = Badezimmer_Sonos_Change_Volume.state as DecimalType
-	var Number newVolume = currentVolume + change
-	logInfo("sonos.rules", "changing volume in Badezimmer from " + currentVolume + " to " + newVolume)
-	Badezimmer_Sonos_Volume.sendCommand(newVolume)
-end
+import org.eclipse.smarthome.model.script.ScriptServiceUtil
 
 rule "Levio Wallmote"
 when
@@ -121,4 +53,60 @@ then
 	 	logInfo("levio button", "Sleep Timer reached")
 	    Levio_Sonos_Stop.sendCommand(OFF)
 	]
+end
+
+rule "Wohnzimmer music control"
+when
+    Item Aqara_Opple_Action received update
+then
+
+	var actionOriginal = Aqara_Opple_Action.state.toString
+
+	if(actionOriginal.contains("release")) return
+
+	var target = transform("MAP", "aqara_opple_wohnzimmer_items.map", actionOriginal)
+	val GenericItem targetItem = ScriptServiceUtil.getItemRegistry?.getItem(target) as GenericItem
+
+	var action = transform("MAP", "aqara_opple_wohnzimmer_actions.map", actionOriginal)
+	if(action != "" && targetItem !== null){
+		logInfo("sonos.rules", "target: " + targetItem.name + ", action: " + action)	
+		
+		switch Aqara_Opple_Action.state.toString
+		{
+			case "button_5_single": {
+				var Number currentVolWohnzimmer = WZ_Sonos_Volume.state as DecimalType
+				var Number newVolumeWohnzimmer = currentVolWohnzimmer - 2
+				logInfo("sonos.rules", "changing volume in Wohnzimmer from " + currentVolWohnzimmer + " to " + newVolumeWohnzimmer)
+				WZ_Sonos_Volume.sendCommand(newVolumeWohnzimmer)
+				
+				var Number currentVolKueche = Kueche_Sonos_Volume.state as DecimalType
+				var Number newVolumeKueche = currentVolKueche - 2
+				logInfo("sonos.rules", "changing volume in Küche from " + currentVolKueche + " to " + newVolumeKueche)
+				Kueche_Sonos_Volume.sendCommand(newVolumeKueche)
+			}
+			case "button_5_hold": {
+				if (WZ_Sonos_State.state == "PLAYING") {
+					logInfo("sonos.rules", "About to pause the music")
+					targetItem.sendCommand("PAUSE")
+				} else if (WZ_Sonos_State.state == "PAUSED_PLAYBACK"){
+					logInfo("sonos.rules", "About to resume music playing")
+					targetItem.sendCommand("PLAY")
+				}
+			}			
+			case "button_6_single": {
+				var Number currentVolWohnzimmer = WZ_Sonos_Volume.state as DecimalType
+				var Number newVolumeWohnzimmer = currentVolWohnzimmer + 2
+				logInfo("sonos.rules", "changing volume in Wohnzimmer from " + currentVolWohnzimmer + " to " + newVolumeWohnzimmer)
+				WZ_Sonos_Volume.sendCommand(newVolumeWohnzimmer)
+				
+				var Number currentVolKueche = Kueche_Sonos_Volume.state as DecimalType
+				var Number newVolumeKueche = currentVolKueche + 2
+				logInfo("sonos.rules", "changing volume in Küche from " + currentVolKueche + " to " + newVolumeKueche)
+				Kueche_Sonos_Volume.sendCommand(newVolumeKueche)				
+			}
+			default: {
+				targetItem.sendCommand(action)
+			}
+		}
+	}
 end
