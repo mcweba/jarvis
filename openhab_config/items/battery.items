@@ -1,0 +1,8 @@
+Group:Number:MIN gBatteries
+
+Number  GR_Aqara_Battery                (gBatteries)    { channel="mqtt:topic:mosquitto:door_garderobe:DoorBatteryGarderobe" }
+Number  WC_Aqara_Battery                (gBatteries)    { channel="mqtt:topic:mosquitto:window_wc_eg:WindowBatteryToilet" }
+Number  Aqara_Opple_Battery             (gBatteries)    { channel="mqtt:topic:mosquitto:aqara_opple:AqaraOppleBattery" }
+Number  HZ_Aqara_Wasseralarm_Battery    (gBatteries)    { channel="mqtt:topic:mosquitto:waterleak_waschkueche:WaterleakBatteryHeizung" }
+Number  Jara_Aqara_Battery              (gBatteries)    { channel="mqtt:topic:mosquitto:aqara_jara:AqaraBatteryJara" }
+Number  Levio_Aqara_Battery             (gBatteries)    { channel="mqtt:topic:mosquitto:aqara_levio:AqaraBatteryLevio" }
