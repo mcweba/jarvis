@@ -5,7 +5,7 @@ when
     Item gBatteries changed
 then
     var String msg = ""
-    var triggertDevices = gBatteries.members.filter[s|s.state <= 20]
+    var triggertDevices = gBatteries.members.filter[s|s.state <= lowBatteryThreshold]
 
     triggertDevices.forEach [ i |
         msg = msg + (transform("MAP", "batteries.map", i.name) + ': ' + i.state.toString) + '%'

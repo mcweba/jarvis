@@ -5,3 +5,6 @@ Switch GR_Shelly_State "Shelly Garderobe Status" <energy> (ADM_Shelly) { channel
 Number GR_Shelly_RSSI "Shelly Garderobe WiFi Empfang [%d %%]" <qualityofservice> (ADM_Shelly)   { channel="mqtt:topic:mosquitto:shelly_garderobe:RSSIShellyGarderobe" }
 String GR_Shelly_Uptime "Shelly Garderobe Uptime [%s]" <clock> (ADM_Shelly)   { channel="mqtt:topic:mosquitto:shelly_garderobe:UptimeShellyGarderobe" }
 String GR_Shelly_Firmware "Shelly Garderobe Firmware [%s]" <firmware> (ADM_Shelly)   { channel="mqtt:topic:mosquitto:shelly_garderobe:FirmwareShellyGarderobe" }
+
+Switch OG_Licht_Links "Licht OG Links" <light> (ADM_Shelly)    { channel="mqtt:topic:mosquitto:shelly_licht_og:StatusLichtOGLinks" }
+Switch OG_Licht_Rechts "Licht OG Rechts" <light> (ADM_Shelly)    { channel="mqtt:topic:mosquitto:shelly_licht_og:StatusLichtOGRechts" }

@@ -47,3 +47,21 @@ Thing mqtt:topic:mosquitto:aqara_opple "MQTT Thing: 6-Button Switch" (mqtt:broke
         Type string : AqaraOppleBattery "Battery" [ stateTopic="zigbee2mqtt/aqara_opple", transformationPattern="JSONPATH:$.battery"]
         Type string : AqaraOppleAction "Action" [ stateTopic="zigbee2mqtt/aqara_opple", transformationPattern="JSONPATH:$.action"]
 }
+
+Thing mqtt:topic:mosquitto:aqara_schlafzimmer "MQTT Thing: Temperatursensor Schlafzimmer" (mqtt:broker:mosquitto) @ "Schlafzimmer"
+{
+    Channels:
+        Type number : AqaraTemperatureSchlafzimmer "Temperature" [ stateTopic="zigbee2mqtt/aqara_schlafzimmer", transformationPattern="JSONPATH:$.temperature"]
+        Type number : AqaraHumiditySchlafzimmer "Humidity" [ stateTopic="zigbee2mqtt/aqara_schlafzimmer", transformationPattern="JSONPATH:$.humidity"]
+        Type number : AqaraPressureSchlafzimmer "Pressure" [ stateTopic="zigbee2mqtt/aqara_schlafzimmer", transformationPattern="JSONPATH:$.pressure"]
+        Type number : AqaraBatterySchlafzimmer "Battery" [ stateTopic="zigbee2mqtt/aqara_schlafzimmer", transformationPattern="JSONPATH:$.battery"]
+}
+
+Thing mqtt:topic:mosquitto:aqara_badezimmer "MQTT Thing: Temperatursensor Badezimmer" (mqtt:broker:mosquitto) @ "Badezimmer"
+{
+    Channels:
+        Type number : AqaraTemperatureBadezimmer "Temperature" [ stateTopic="zigbee2mqtt/aqara_badezimmer", transformationPattern="JSONPATH:$.temperature"]
+        Type number : AqaraHumidityBadezimmer "Humidity" [ stateTopic="zigbee2mqtt/aqara_badezimmer", transformationPattern="JSONPATH:$.humidity"]
+        Type number : AqaraPressureBadezimmer "Pressure" [ stateTopic="zigbee2mqtt/aqara_badezimmer", transformationPattern="JSONPATH:$.pressure"]
+        Type number : AqaraBatteryBadezimmer "Battery" [ stateTopic="zigbee2mqtt/aqara_badezimmer", transformationPattern="JSONPATH:$.battery"]
+}

@@ -6,3 +6,6 @@ Number  Aqara_Opple_Battery             (gBatteries)    { channel="mqtt:topic:mo
 Number  HZ_Aqara_Wasseralarm_Battery    (gBatteries)    { channel="mqtt:topic:mosquitto:waterleak_waschkueche:WaterleakBatteryHeizung" }
 Number  Jara_Aqara_Battery              (gBatteries)    { channel="mqtt:topic:mosquitto:aqara_jara:AqaraBatteryJara" }
 Number  Levio_Aqara_Battery             (gBatteries)    { channel="mqtt:topic:mosquitto:aqara_levio:AqaraBatteryLevio" }
+Number  Schlafzimmer_Aqara_Battery      (gBatteries)    { channel="mqtt:topic:mosquitto:aqara_schlafzimmer:AqaraBatterySchlafzimmer" }
+Number  Badezimmer_Aqara_Battery        (gBatteries)    { channel="mqtt:topic:mosquitto:aqara_badezimmer:AqaraBatteryBadezimmer" }
+Number  Levio_Wallmote_Battery          (gBatteries)    { channel="zwave:device:0d1b192a:node6:battery-level" }

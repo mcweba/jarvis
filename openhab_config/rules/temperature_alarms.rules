@@ -1,3 +1,4 @@
+val Number lowTemperatureThreshold = 17
 var Timer fenster_wc_timer = null
 
 rule "Fensteralarm WC EG"
@@ -15,4 +16,22 @@ then
     } else {
         fenster_wc_timer?.cancel
     }    
+end
+
+rule "Temperatur Check"
+when
+    Item gTemperatures changed
+then
+    var String msg = ""
+    var triggertDevices = gTemperatures.members.filter[s|s.state <= lowTemperatureThreshold]
+
+    triggertDevices.forEach [ i |
+        msg = msg + (transform("MAP", "temperatures.map", i.name) + ': ' + i.state.toString) + '°C'
+        logInfo("Temperatur Check","Low temperature at " + i.name + ": " + i.state.toString + "°C")
+    ]
+
+    if (msg != "") {
+        sendTelegram("MyMaHome_Marc","Schatzi willst du Pinguine züchten? Temperatur " + msg)
+        sendTelegram("MyMaHome_Myriam","Schatzi willst du Pinguine züchten? Temperatur " + msg)
+    }
 end

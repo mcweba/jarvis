@@ -1,5 +1,13 @@
-Number Levio_Aqara_Temperatur    "Temperatur [%.1f °C]"    <temperature_hot>   (ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_levio:AqaraTemperatureLevio" }
+Group:Number:MIN gTemperatures
+
+Number Levio_Aqara_Temperatur    "Temperatur [%.1f °C]"    <temperature_hot>   (gTemperatures,ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_levio:AqaraTemperatureLevio" }
 Number Levio_Aqara_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>    (ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_levio:AqaraHumidityLevio" }
 
-Number Jara_Aqara_Temperatur    "Temperatur [%.1f °C]"    <temperature_hot>   (ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_jara:AqaraTemperatureJara" }
+Number Jara_Aqara_Temperatur    "Temperatur [%.1f °C]"    <temperature_hot>   (gTemperatures,ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_jara:AqaraTemperatureJara" }
 Number Jara_Aqara_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>    (ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_jara:AqaraHumidityJara" }
+
+Number Badezimmer_Aqara_Temperatur    "Temperatur [%.1f °C]"    <temperature_hot>   (gTemperatures,ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_badezimmer:AqaraTemperatureBadezimmer" }
+Number Badezimmer_Aqara_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>    (ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_badezimmer:AqaraHumidityBadezimmer" }
+
+Number Schlafzimmer_Aqara_Temperatur    "Temperatur [%.1f °C]"    <temperature_hot>   (gTemperatures,ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_schlafzimmer:AqaraTemperatureSchlafzimmer" }
+Number Schlafzimmer_Aqara_Humidity      "Luftfeuchtigkeit [%.1f %%]"    <humidity>    (ADM_Temp) { channel="mqtt:topic:mosquitto:aqara_schlafzimmer:AqaraHumiditySchlafzimmer" }
