@@ -1,6 +1,58 @@
 # jarvis
 Home Automation based on OpenHAB2
 
+## Husqvarna API Adapter
+This server is based on _Node.js_ and _Express.js_
+
+### Installation
+Copy the _adapter.js_ script from the _husqvarna_ folder to the following folder on the raspberry pi:
+
+```
+/home/openhabian/HusqvarnaApiAdapter
+```
+Navigate into this directory and call
+
+```
+sudo npm i express
+sudo npm i request
+sudo npm i log-timestamp
+```
+You should no be able to start the adapter (for testing) with
+```
+node adapter.js
+```
+
+### Start adapter after Raspberry reboot
+To start the adapter automatically after a reboot you have to copy the init script _husqvarna_api_adapter_ from the _husqvarna_ folder to
+```
+/etc/init.d/
+```
+Change permissions of init script to
+```
+sudo chmod 755 husqvarna_api_adapter
+```
+activate the service by calling
+```
+sudo update-rc.d husqvarna_api_adapter defaults
+```
+The init script should now be started on next reboot. To manually start the script use
+```
+sudo /etc/init.d/husqvarna_api_adapter start
+```
+to stop the script use
+```
+sudo /etc/init.d/husqvarna_api_adapter stop
+```
+to get the status of the script use
+```
+sudo /etc/init.d/husqvarna_api_adapter status
+```
+the corresponding log files can be viewed with
+```
+tail -f /var/log/husqvarna_api_adapter.log
+tail -f /var/log/husqvarna_api_adapter.err
+```
+
 ## MyStrom Button Adapter
 Since the REST API of the MyStrom Button does not allow to make _POST_ requests with a _text/plain_ content-type and the (items) REST API of _openHAB2_ only accepts _text/plain_ content-type requests, a simple adapter server is used.
 
