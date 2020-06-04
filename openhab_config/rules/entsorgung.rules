@@ -9,9 +9,11 @@ then
 
     if(Bdays == 1){
         sendTelegram("MyMaHome_Marc", "Morgen ist Grünabfuhr!")
+		sendTelegram("MyMaHome_Myriam", "Morgen ist Grünabfuhr!")
     }
     if(Wdays == 1){
         sendTelegram("MyMaHome_Marc", "Morgen ist Kehrichtabfuhr!")
+		sendTelegram("MyMaHome_Myriam", "Morgen ist Kehrichtabfuhr!")
     }    
 end
 
