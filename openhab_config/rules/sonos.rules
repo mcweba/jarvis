@@ -15,24 +15,24 @@ then
 
     switch (sceneNumber) {
         case 1 : {
-            logInfo("levio button", "Scene " + sceneNumber + " - Leo Lausemaus Weihnachten")
-			Levio_Sonos_Playlist.sendCommand("Levio - Lausemaus Weihnachten")
+            logInfo("levio button", "Scene " + sceneNumber + " - Liste_1")
+			Levio_Sonos_Playlist.sendCommand("Levio - Liste_1")
         }
         case 1.1 :  { // long press
             logInfo("levio button", "Scene " + sceneNumber + " - Stop")
 			Levio_Sonos_Stop.sendCommand(OFF)
         }		
 		case 2 : {
-            logInfo("levio button", "Scene " + sceneNumber + " - Leo Lausemaus Spotify")
-            Levio_Sonos_Playlist.sendCommand("Levio - Lausemaus Spotify")
+            logInfo("levio button", "Scene " + sceneNumber + " - Liste_2")
+            Levio_Sonos_Playlist.sendCommand("Levio - Liste_2")
         }
         case 2.1 :  { // long press
             logInfo("levio button", "Scene " + sceneNumber + " - Stop")
 			Levio_Sonos_Stop.sendCommand(OFF)
         }		
 		case 3 : {
-            logInfo("levio button", "Scene " + sceneNumber + " - Dinosaurier")
-            Levio_Sonos_Playlist.sendCommand("Levio - Dinosaurier")
+            logInfo("levio button", "Scene " + sceneNumber + " - Liste_3")
+            Levio_Sonos_Playlist.sendCommand("Levio - Liste_3")
         }
         case 3.1 :  { // long press
             logInfo("levio button", "Scene " + sceneNumber + " - Stop")
@@ -40,8 +40,8 @@ then
         }		
 		case 4 : {
 			Levio_Sonos_Volume.sendCommand(10)
-            logInfo("levio button", "Scene " + sceneNumber + " - Feldberger Hof")
-            Levio_Sonos_Playlist.sendCommand("Levio - Feldbergerhof")
+            logInfo("levio button", "Scene " + sceneNumber + " - Liste_4")
+            Levio_Sonos_Playlist.sendCommand("Levio - Liste_4")
         }
         case 4.1 :  { // long press
             logInfo("levio button", "Scene " + sceneNumber + " - Stop")
