@@ -15,7 +15,8 @@ sitemap zuhause label="Zuhause" {
             Switch item=EZ_Store_Group label="Alle" mappings=[DOWN="Runter", UP="Hoch"]
         }
         Group item=EG_Wohnzimmer
-        Group item=EG_Garten  
+        Group item=EG_Garten
+        Group item=EG_Pool
     }
 
     Frame label="UG" icon="cellar" {
@@ -26,5 +27,6 @@ sitemap zuhause label="Zuhause" {
     Frame label="Administration" icon="settings" {
         Group item=ADM_Sonoff
         Group item=ADM_Shelly
+        Group item=ADM_Hue
     }    
 }

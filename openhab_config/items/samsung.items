@@ -1,0 +1,2 @@
+Switch  TV_Power         "Power"                               (ADM_Samsung)   { channel="samsungtv:tv:frame:power" }
+Switch  TV_ArtMode       "Art Mode"                            (ADM_Samsung)   { channel="samsungtv:tv:frame:artMode" }

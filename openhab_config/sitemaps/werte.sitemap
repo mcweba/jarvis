@@ -1,5 +1,4 @@
 sitemap werte label="Werte" {
-
     Frame label="Klima" icon="settings" {
         Text item=Levio_Aqara_Temperatur label="Levio [%.1f °C]"
         Text item=Levio_Aqara_Humidity label="Levio [%.1f %%]"
@@ -18,10 +17,5 @@ sitemap werte label="Werte" {
     Frame label="Entsorgung" icon="settings" {
         Text item=Entsorgung_Bio label="Nächste Grünabfuhr: [%s]"
         Text item=Entsorgung_Waste label="Nächste Kehrichtabfuhr: [%s]"
-    }       
-
-    Frame label="Administration" icon="settings" {
-        Group item=ADM_Sonoff
-        Group item=ADM_Shelly
-    }    
+    }        
 }

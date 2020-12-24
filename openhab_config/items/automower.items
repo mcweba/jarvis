@@ -1,0 +1,17 @@
+String Automower_Name               "Name"                   { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:name" }
+String Automower_Mode               "Mode"                   { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:mode" }
+String Automower_Activity           "Activity"               { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:activity" }
+String Automower_State              "State"                  { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:state" }
+DateTime Automower_Last_Update      "Last Update"            { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:last-update" }
+Number Automower_Battery            "Battery"                { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:battery" }
+Number Automower_Error_Code         "Error Code"             { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:error-code" }
+DateTime Automower_Error_Time       "Error Time"             { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:error-timestamp" }
+
+
+String Automower_Command            "Command"                { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:command" }
+Number Automower_Command_Duration   "Command Duration"       { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:command-duration" }
+String Automower_Command_Response   "Command Response"       { channel="automower:automower:5736508c:7b0e07de-0a1c-4e54-8d80-ef9adde5fe84:command-response" }
+
+Number StorageDemo "StorageDemo"    (gMapDB)
+Switch StorageDemo2 "StorageDemo2"  (gMapDB)
+Number StorageDemo3 "StorageDemo3"    (gMapDB)

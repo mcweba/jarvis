@@ -1,0 +1,7 @@
+Group    ADM_Hue                          "Hue"      <settings>         (Home, ADM)
+
+Switch   HueColorFloor1Switch             "On/Off"            (ADM_Hue)  {channel="hue:0210:0017886e3ea8:4:color"}
+Color    HueColorFloor1Color              "Color"             (ADM_Hue)  {channel="hue:0210:0017886e3ea8:4:color"}
+Dimmer   HueColorFloor1ColorTemperature   "Color temperature" (ADM_Hue)  {channel="hue:0210:0017886e3ea8:4:color_temperature"}
+String   HueColorFloor1Alert              "Alert"             (ADM_Hue)  {channel="hue:0210:0017886e3ea8:4:alert"}
+Switch   HueColorFloor1Effect             "Color loop"        (ADM_Hue)  {channel="hue:0210:0017886e3ea8:4:effect"}

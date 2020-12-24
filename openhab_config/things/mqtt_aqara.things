@@ -48,6 +48,14 @@ Thing mqtt:topic:mosquitto:aqara_opple "MQTT Thing: 6-Button Switch" (mqtt:broke
         Type string : AqaraOppleAction "Action" [ stateTopic="zigbee2mqtt/aqara_opple", transformationPattern="JSONPATH:$.action"]
 }
 
+Thing mqtt:topic:mosquitto:aqara_opple_levio "MQTT Thing: 4-Button Switch" (mqtt:broker:mosquitto) @ "Levio"
+{
+    Channels:
+        Type number : AqaraOppleLevioLink "Link Quality" [ stateTopic="zigbee2mqtt/aqara_opple_4b", transformationPattern="JSONPATH:$.linkquality"]
+        Type string : AqaraOppleLevioBattery "Battery" [ stateTopic="zigbee2mqtt/aqara_opple_4b", transformationPattern="JSONPATH:$.battery"]
+        Type string : AqaraOppleLevioAction "Action" [ stateTopic="zigbee2mqtt/aqara_opple_4b", transformationPattern="JSONPATH:$.action"]
+}
+
 Thing mqtt:topic:mosquitto:aqara_schlafzimmer "MQTT Thing: Temperatursensor Schlafzimmer" (mqtt:broker:mosquitto) @ "Schlafzimmer"
 {
     Channels:

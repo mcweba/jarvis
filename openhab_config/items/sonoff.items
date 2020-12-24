@@ -1,13 +1,26 @@
-Group    ADM_Sonoff            "Sonoff"      <settings>         (Home, ADM)
+Switch TR_Sonoff_State          "Terasse Status"                <energy>                (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_terasse:ReachableSonoffTerasse" }
+Number TR_Sonoff_RSSI           "Terasse WiFi [%d %%]"          <qualityofservice>      (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_terasse:RSSISonoffTerasse" }
+String TR_Sonoff_Uptime         "Terasse Uptime [%s]"           <clock>                 (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_terasse:UptimeSonoffTerasse" }
+String TR_Sonoff_Firmware       "Terasse Firmware [%s]"         <firmware>              (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_terasse:FirmwareSonoffTerasse" }
+Switch TR_Beleuchtung           "Xmas Modus"                    <light>                 (ADM_Sonoff,EG_Garten)      { channel="mqtt:topic:mosquitto:sonoff_terasse:StatusSonoffTerasse" }
+Number TR_Humidity              "Luftfeuchtigkeit [%.1f %%]"    <humidity>              (EG_Garten)                 { channel="mqtt:topic:mosquitto:sonoff_terasse:HumiditySonoffTerasse" }
+Number TR_Temperatur            "Temperatur [%.1f °C]"          <temperature>           (EG_Garten)                 { channel="mqtt:topic:mosquitto:sonoff_terasse:TemperatureSonoffTerasse" }
+Number TR_Pressure              "Luftdruck [%.1f hPa]"          <pressure>              (EG_Garten)                 { channel="mqtt:topic:mosquitto:sonoff_terasse:PressureSonoffTerasse" }
 
-Switch TR_Sonoff_Switch "Sonoff Terasse" <light> (ADM_Sonoff)    { channel="mqtt:topic:mosquitto:sonoff_terasse:StatusSonoffTerasse" }
-Switch TR_Sonoff_State "Sonoff Terasse Status" <energy> (ADM_Sonoff) { channel="mqtt:topic:mosquitto:sonoff_terasse:ReachableSonoffTerasse" }
-Number TR_Sonoff_RSSI "Sonoff Terasse WiFi Empfang [%d %%]" <qualityofservice> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_terasse:RSSISonoffTerasse" }
-String TR_Sonoff_Uptime "Sonoff Terasse Uptime [%s]" <clock> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_terasse:UptimeSonoffTerasse" }
-String TR_Sonoff_Firmware "Sonoff Terasse Firmware [%s]" <firmware> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_terasse:FirmwareSonoffTerasse" }
+Switch WK_Lueftung_Automatik    "Automatik"                     <none>                  (UG_Weinkeller,gMapDB)
+Switch WK_Lueftung              "Lüftung"                       <fan>                   (UG_Weinkeller,gMapDB)      { channel="mqtt:topic:mosquitto:sonoff_weinkeller:StatusSonoffWeinkeller" }
+Number WK_Humidity              "Luftfeuchtigkeit [%.1f %%]"    <humidity>              (UG_Weinkeller)             { channel="mqtt:topic:mosquitto:sonoff_weinkeller:HumiditySonoffWeinkeller" }
+Number WK_Temperatur_Innen      "Temperatur innen [%.1f °C]"    <temperature_hot>       (UG_Weinkeller)             { channel="mqtt:topic:mosquitto:sonoff_weinkeller:TemperatureSonoffWeinkeller" }
+Number WK_Temperatur_Aussen     "Temperatur aussen [%.1f °C]"   <temperature_cold>      (UG_Weinkeller)             { channel="mqtt:topic:mosquitto:sonoff_terasse:TemperatureSonoffTerasse" }
+Switch WK_Sonoff_Switch         "Weinkeller"                    <light>                 (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_weinkeller:StatusSonoffWeinkeller" }
+Switch WK_Sonoff_State          "Weinkeller Status"             <energy>                (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_weinkeller:ReachableSonoffWeinkeller" }
+Number WK_Sonoff_RSSI           "Weinkeller WiFi [%d %%]"       <qualityofservice>      (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_weinkeller:RSSISonoffWeinkeller" }
+String WK_Sonoff_Uptime         "Weinkeller Uptime [%s]"        <clock>                 (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_weinkeller:UptimeSonoffWeinkeller" }
+String WK_Sonoff_Firmware       "Weinkeller Firmware [%s]"      <firmware>              (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_weinkeller:FirmwareSonoffWeinkeller" }
 
-Switch WK_Sonoff_Switch "Sonoff Weinkeller" <light> (ADM_Sonoff)    { channel="mqtt:topic:mosquitto:sonoff_weinkeller:StatusSonoffWeinkeller" }
-Switch WK_Sonoff_State "Sonoff Weinkeller Status" <energy> (ADM_Sonoff) { channel="mqtt:topic:mosquitto:sonoff_weinkeller:ReachableSonoffWeinkeller" }
-Number WK_Sonoff_RSSI "Sonoff Weinkeller WiFi Empfang [%d %%]" <qualityofservice> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_weinkeller:RSSISonoffWeinkeller" }
-String WK_Sonoff_Uptime "Sonoff Weinkeller Uptime [%s]" <clock> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_weinkeller:UptimeSonoffWeinkeller" }
-String WK_Sonoff_Firmware "Sonoff Weinkeller Firmware [%s]" <firmware> (ADM_Sonoff)   { channel="mqtt:topic:mosquitto:sonoff_weinkeller:FirmwareSonoffWeinkeller" }
+Switch PL_Sonoff_State          "Pool Status"                   <energy>                (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_pool:ReachableSonoffPool" }
+Number PL_Sonoff_RSSI           "Pool WiFi [%d %%]"             <qualityofservice>      (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_pool:RSSISonoffPool" }
+String PL_Sonoff_Uptime         "Pool Uptime [%s]"              <clock>                 (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_pool:UptimeSonoffPool" }
+String PL_Sonoff_Firmware       "Pool Firmware [%s]"            <firmware>              (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_pool:FirmwareSonoffPool" }
+Switch PL_Filter                "Filter"                        <pump>                  (ADM_Sonoff,EG_Pool,gMapDB) { channel="mqtt:topic:mosquitto:sonoff_pool:StatusSonoffPool" }
+Number PL_Temperatur            "Temperatur [%.1f °C]"          <temperature>           (EG_Pool)                   { channel="mqtt:topic:mosquitto:sonoff_pool:TemperatureSonoffPool" }

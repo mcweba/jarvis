@@ -22,3 +22,14 @@ Thing mqtt:topic:mosquitto:sonoff_weinkeller  "MQTT Thing: Sonoff Weinkeller" (m
         Type number : HumiditySonoffWeinkeller "Humidity" [ stateTopic="tele/ug/weinkeller/SENSOR", transformationPattern="JS:fix_bme280_humidity.js" ]
         Type number : TemperatureSonoffWeinkeller "Temperature" [ stateTopic="tele/ug/weinkeller/SENSOR", transformationPattern="JSONPATH:$.BME280.Temperature" ]
 }
+
+Thing mqtt:topic:mosquitto:sonoff_pool  "MQTT Thing: Sonoff Pool" (mqtt:broker:mosquitto) @ "Pool"
+{
+    Channels:
+        Type number : RSSISonoffPool "RSSI" [ stateTopic="tele/eg/pool/STATE", transformationPattern="JSONPATH:$.Wifi.RSSI" ]
+        Type string : UptimeSonoffPool "Uptime" [ stateTopic="tele/eg/pool/STATE", transformationPattern="JSONPATH:$.Uptime" ]
+        Type string : FirmwareSonoffPool "Firmware" [ stateTopic="tele/eg/pool/INFO1", transformationPattern="JSONPATH:$.Version" ]
+        Type switch : StatusSonoffPool "EIN/AUS" [ stateTopic="stat/eg/pool/POWER", commandTopic="cmnd/eg/pool/POWER" ]
+        Type switch : ReachableSonoffPool "Reachable" [ stateTopic="tele/eg/pool/LWT", transformationPattern="MAP:reachable.map" ]
+        Type number : TemperatureSonoffPool "Temperature" [ stateTopic="tele/eg/pool/SENSOR", transformationPattern="JSONPATH:$.DS18B20.Temperature" ]
+}

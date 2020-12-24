@@ -3,16 +3,19 @@ Switch Levio_Sonos_ClearQueue              "ClearQueue"                <sonos_cl
 Switch Levio_Sonos_Stop                    "Stop"                      <sonos_stop>         (OG_Levio)            {channel="sonos:PLAY1:Levio:stop", autoupdate="false"}
 Dimmer Levio_Sonos_Volume                  "Lautstärke"                <soundvolume>        (OG_Levio)            {channel="sonos:PLAY1:Levio:volume"}
 
-String Badezimmer_Sonos_State                   "State [%s]"                <sonos_state>        (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:state"}
-String Badezimmer_Sonos_Add                                                                                                 {channel="sonos:PLAY1:Badezimmer:add"}
-Player Badezimmer_Sonos_Control                 "Control"                   <sonos_control>      (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:control"}
-String Badezimmer_Sonos_Radio                   "Radio [%s]"                <sonos_radio>        (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:radio"}
-String Badezimmer_Sonos_Playlist                "Playlist [%s]"             <sonos_favorite>     (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:playlist"}
-Switch Badezimmer_Sonos_ClearQueue              "ClearQueue"             	<sonos_clearqueue>   (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:clearqueue"}
-Dimmer Badezimmer_Sonos_Volume                  "Lautstärke"                <soundvolume>        (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:volume"}
-Switch Badezimmer_Sonos_Stop                    "Stop"                      <sonos_stop>         (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:stop", autoupdate="false"}
-String Badezimmer_Sonos_Change_Radio
-Number Badezimmer_Sonos_Change_Volume
+Number Levio_Sonos_Vol_1_single "[%d]"   <soundvolume>   (Admin, gMapDB)
+Number Levio_Sonos_Vol_1_double "[%d]"   <soundvolume>   (Admin, gMapDB)
+Number Levio_Sonos_Vol_2_single "[%d]"   <soundvolume>   (Admin, gMapDB)
+Number Levio_Sonos_Vol_2_double "[%d]"   <soundvolume>   (Admin, gMapDB)
+Number Levio_Sonos_Vol_3_single "[%d]"   <soundvolume>   (Admin, gMapDB)
+Number Levio_Sonos_Vol_3_double "[%d]"   <soundvolume>   (Admin, gMapDB)
+Number Levio_Sonos_Vol_4_single "[%d]"   <soundvolume>   (Admin, gMapDB)
+Number Levio_Sonos_Vol_4_double "[%d]"   <soundvolume>   (Admin, gMapDB)
+
+String Buero_Sonos_Playlist                "Playlist [%s]"             <sonos_favorite>     (EG_Buero)            {channel="sonos:PLAY1:Buero:playlist"}
+Switch Buero_Sonos_ClearQueue              "ClearQueue"                <sonos_clearqueue>   (EG_Buero)            {channel="sonos:PLAY1:Buero:clearqueue"}
+Dimmer Buero_Sonos_Volume                  "Lautstärke"                <soundvolume>        (EG_Buero)            {channel="sonos:PLAY1:Buero:volume"}
+Switch Buero_Sonos_Stop                    "Stop"                      <sonos_stop>         (EG_Buero)            {channel="sonos:PLAY1:Buero:stop", autoupdate="false"}
 
 String Kueche_Sonos_Radio                   "Radio [%s]"                <sonos_radio>        (EG_Kueche)            {channel="sonos:PLAY1:Kueche:radio"}
 String Kueche_Sonos_Add                                                                                             {channel="sonos:PLAY1:Kueche:add"}
@@ -21,6 +24,7 @@ Switch Kueche_Sonos_ClearQueue              "ClearQueue"             	<sonos_cle
 Dimmer Kueche_Sonos_Volume                  "Lautstärke"                <soundvolume>        (EG_Kueche)            {channel="sonos:PLAY1:Kueche:volume"}
 
 String WZ_Sonos_Playlist                "Playlist [%s]"             <sonos_favorite>     (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:playlist"}
+Switch WZ_Sonos_ClearQueue              "ClearQueue"             	<sonos_clearqueue>   (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:clearqueue"}
 String WZ_Sonos_State                   "State [%s]"                <sonos_state>        (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:state"}
 String WZ_Sonos_Favorite                "Favorite [%s]"             <sonos_favorite>     (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:favorite"}
 Player WZ_Sonos_Control                 "Control"                   <sonos_control>      (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:control"}
@@ -31,6 +35,7 @@ String WZ_Sonos_CurrentTitle            "Title [%s]"                <sonos_title
 String WZ_Sonos_CurrentTrack            "Track [%s]"                <sonos_track>        (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:currenttrack"}
 Dimmer WZ_Sonos_Volume                  "Volume"                    <soundvolume>        (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:volume"}
 Switch WZ_Sonos_Mute                    "Mute"                      <sonos_mute>         (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:mute"}
+Switch WZ_Sonos_Shuffle                 "Shuffle"                   <sonos_shuffle>      (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:shuffle"}
 Switch WZ_Sonos_Stop                    "Stop"                      <sonos_stop>         (EG_Wohnzimmer)            {channel="sonos:CONNECT:Wohnzimmer:stop", autoupdate="false"}
 String WZ_Sonos_Add                                                                                                 {channel="sonos:CONNECT:Wohnzimmer:add"}
 

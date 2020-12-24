@@ -1,0 +1,13 @@
+sitemap automower label="Automower"
+{
+    Frame {
+        Text        item=Automower_Name
+        Text        item=Automower_Mode
+        Text        item=Automower_Activity
+        Text        item=Automower_State
+        Text        item=Automower_Last_Update
+        Text        item=Automower_Battery
+        Text        item=Automower_Error_Code
+        Text        item=Automower_Error_Time
+    }
+}

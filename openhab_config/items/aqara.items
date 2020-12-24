@@ -3,3 +3,5 @@ Contact WC_Aqara_Contact            "Fenster WC [%s]"                       <con
 Number HZ_Aqara_Wasseralarm         "Heizung Wasseralarm [%s]"              <contact>   (UG_Heizung) { channel="mqtt:topic:mosquitto:waterleak_heizung:WaterleakAlarmHeizung" }
 
 String Aqara_Opple_Action           "Action [%s]"                           <contact>                { channel="mqtt:topic:mosquitto:aqara_opple:AqaraOppleAction" }
+
+String Aqara_Opple_Levio_Action     "Action [%s]"                           <contact>                { channel="mqtt:topic:mosquitto:aqara_opple_levio:AqaraOppleLevioAction" }

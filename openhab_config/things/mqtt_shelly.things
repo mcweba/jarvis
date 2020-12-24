@@ -1,3 +1,10 @@
+Thing mqtt:topic:mosquitto:shelly_licht_og  "MQTT Thing: Shelly Licht OG" (mqtt:broker:mosquitto) @ "OG"
+{
+    Channels:
+        Type switch : StatusLichtOGLinks "EIN/AUS" [ stateTopic="shellies/shelly_licht_og/relay/0", on="on", off="off", commandTopic="shellies/shelly_licht_og/relay/0/command", on="on", off="off" ]
+        Type switch : StatusLichtOGRechts "EIN/AUS" [ stateTopic="shellies/shelly_licht_og/relay/1", on="on", off="off", commandTopic="shellies/shelly_licht_og/relay/1/command", on="on", off="off" ]
+}
+
 Thing mqtt:topic:mosquitto:shelly_garderobe  "MQTT Thing: Shelly Garderobe" (mqtt:broker:mosquitto) @ "Garderobe"
 {
     Channels:
@@ -6,11 +13,4 @@ Thing mqtt:topic:mosquitto:shelly_garderobe  "MQTT Thing: Shelly Garderobe" (mqt
         Type string : FirmwareShellyGarderobe "Firmware" [ stateTopic="tele/eg/garderobe/INFO1", transformationPattern="JSONPATH:$.Version" ]
         Type switch : StatusShellyGarderobe "EIN/AUS" [ stateTopic="stat/eg/garderobe/POWER", commandTopic="cmnd/eg/garderobe/POWER" ]
         Type switch : ReachableShellyGarderobe "Reachable" [ stateTopic="tele/eg/garderobe/LWT", transformationPattern="MAP:reachable.map" ]
-}
-
-Thing mqtt:topic:mosquitto:shelly_licht_og  "MQTT Thing: Shelly Licht OG" (mqtt:broker:mosquitto) @ "OG"
-{
-    Channels:
-        Type switch : StatusLichtOGLinks "EIN/AUS" [ stateTopic="shellies/shelly_licht_og/relay/0", on="on", off="off", commandTopic="shellies/shelly_licht_og/relay/0/command", on="on", off="off" ]
-        Type switch : StatusLichtOGRechts "EIN/AUS" [ stateTopic="shellies/shelly_licht_og/relay/1", on="on", off="off", commandTopic="shellies/shelly_licht_og/relay/1/command", on="on", off="off" ]
 }

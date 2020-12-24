@@ -1,4 +1,4 @@
-Your rules go here.
+Your rules go here.ooo
 All rule files have to have the ".rules" file extension and must follow a special syntax.
 
 Check out the openHAB documentation for more details:

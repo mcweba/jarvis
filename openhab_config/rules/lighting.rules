@@ -1,3 +1,32 @@
+var Timer garderobe_timer = null
+
+rule "Presence simulation between 21:00-23:00"
+	when
+		Time cron "0 */10 21-23 * * ?"
+	then
+
+    if(OG_Licht_Automatik.state != ON) {
+        return;
+    }
+
+    // Only turn a light on/off ocasionally
+    if ((new java.util.Random).nextInt(2) == 1) { 
+    
+        // Create a timer with a random value
+        var int randomTime = (new java.util.Random).nextInt(300)
+        logInfo("lighting.rules","Setting random lights timer to " + randomTime + " seconds.")
+        createTimer(now.plusSeconds(randomTime)) [|
+            if(OG_Licht_Links.state == ON){
+                OG_Licht_Links.sendCommand(OFF)
+            } else {
+                OG_Licht_Links.sendCommand(ON)
+            }
+        ]
+    } else {
+        logInfo("lighting.rules","Skipping this time. Maybe next run changes the lights")
+    }
+end
+
 rule "Licht Garderobe"
 
 when
@@ -7,7 +36,29 @@ then
     
     if(GR_Aqara_Contact.state == OPEN){
         GR_Shelly_Switch.sendCommand(ON)
+        garderobe_timer = createTimer( now.plusMinutes(1), [ |
+            logInfo("lighting.rules", "Garderobe mehr als 5 Minuten offen")
+            GR_Shelly_Switch.sendCommand(OFF)
+            garderobe_timer = null
+        ])          
     } else {
         GR_Shelly_Switch.sendCommand(OFF)
+        garderobe_timer?.cancel
     }
+end
+
+rule "Weihnachtsbeleuchtung einschalten"
+
+when   
+    Time cron "0 45 16 * * ?" or Time cron "0 0 6 * * ?"
+then
+    TR_Beleuchtung.sendCommand(ON)
+end
+
+rule "Weihnachtsbeleuchtung ausschalten"
+
+when   
+    Time cron "0 15 0 * * ?" or Time cron "0 0 8 * * ?"
+then
+    TR_Beleuchtung.sendCommand(OFF)
 end

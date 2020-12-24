@@ -1,0 +1,27 @@
+Group   gMapDB               "gMapDB Presistence"
+Group   gLights              "Automatisiertes Licht (influxdb)"
+
+Group    Home                "Zuhause"           <house>
+
+Group    OG                  "OG"                <firstfloor>    (Home)
+Group    EG                  "EG"                <groundfloor>   (Home)
+Group    UG                  "UG"                <cellar>        (Home)
+Group    ADM                 "ADM"               <settings>      (Home)
+
+Group    OG_Levio            "Zimmer Levio"      <boy_1>         (Home, OG)
+Group    OG_Schlafzimmer     "Schlafzimmer"      <bedroom>       (Home, OG)
+Group    OG_Badezimmer     	 "Badezimmer"      	 <bath>       	 (Home, OG)
+Group    EG_Kueche           "Küche"             <kitchen>       (Home, EG)
+Group    EG_Essen            "Essen"             <kitchen>       (Home, EG)
+Group    EG_Buero            "Büro"              <office>        (Home, EG)
+Group    EG_Wohnzimmer       "Wohnzimmer"        <sofa>          (Home, EG)
+Group    EG_Garten       	 "Garten"        	 <terrace>     	 (Home, EG)
+Group    EG_Pool          	 "Pool"         	 <flow>     	 (Home, EG)
+Group    UG_Weinkeller     	 "Weinkeller"      	 <party>     	 (Home, UG)
+Group    UG_Heizung          "Heizung"      	 <fire>     	 (Home, UG)
+
+Group    ADM_UG              "Admin UG"          <settings>      (Home, ADM)
+Group    ADM_Shelly          "Shelly"            <settings>      (Home, ADM)
+Group    ADM_Sonoff          "Sonoff"            <settings>      (Home, ADM)
+Group    ADM_Samsung          "Samsung"            <settings>      (Home, ADM)
+Group    ADM_Temp            "Temperatur"        <settings>      (Home, ADM)

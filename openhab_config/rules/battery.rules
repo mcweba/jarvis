@@ -1,0 +1,18 @@
+val Number lowBatteryThreshold = 20
+
+rule "Battery Status Check"
+when
+    Item gBatteries changed
+then
+    var String msg = ""
+    var triggertDevices = gBatteries.members.filter[s|s.state <= lowBatteryThreshold]
+
+    triggertDevices.forEach [ i |
+        msg = msg + (transform("MAP", "batteries.map", i.name) + ': ' + i.state.toString) + '%'
+        logInfo("Battery Check","Low battery at " + i.name + ": " + i.state.toString + "%")
+    ]
+
+    if (msg != "") {
+        sendTelegram("MyMaHome_Marc", msg + " of your battery remaining")        
+    }
+end

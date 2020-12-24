@@ -1,0 +1,19 @@
+sitemap admin label="Admin" {
+    Frame label="Administration" icon="settings" {
+        Group item=ADM_UG
+        Group item=ADM_Shelly
+        Group item=ADM_Sonoff
+        Group item=ADM_Samsung
+        
+        Text item=Sonos_Admin label="Sonos" icon="settings" {
+            Slider item=Levio_Sonos_Vol_1_single label="Levio 1 single" maxValue=20
+            Slider item=Levio_Sonos_Vol_1_double label="Levio 1 double" maxValue=20
+            Slider item=Levio_Sonos_Vol_2_single label="Levio 2 single" maxValue=20
+            Slider item=Levio_Sonos_Vol_2_double label="Levio 2 double" maxValue=20
+            Slider item=Levio_Sonos_Vol_3_single label="Levio 3 single" maxValue=20
+            Slider item=Levio_Sonos_Vol_3_double label="Levio 3 double" maxValue=20
+            Slider item=Levio_Sonos_Vol_4_single label="Levio 4 single" maxValue=20
+            Slider item=Levio_Sonos_Vol_4_double label="Levio 4 double" maxValue=20
+        }
+    }  
+}

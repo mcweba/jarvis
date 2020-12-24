@@ -1,0 +1,3 @@
+Switch testMe "testMe" (ADM_Shelly)
+
+Number  MOWER_BATTERY	"Battery [%.1f]" <energy> (ADM_Sonoff)	{http="<[husqvarna_mower_status:480000:JSONPATH($.data.attributes.battery.batteryPercent)]"}
