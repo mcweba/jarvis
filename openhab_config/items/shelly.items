@@ -10,3 +10,7 @@ String GR_Shelly_Uptime "Shelly Garderobe Uptime [%s]"        <clock>           
 String GR_Shelly_Firmware "Shelly Garderobe Firmware [%s]"    <firmware>         (ADM_Shelly)           { channel="mqtt:topic:mosquitto:shelly_garderobe:FirmwareShellyGarderobe" }
 
 Switch TR_Pool "Pool Pumpe"                                   <flow>             (ADM_Shelly,EG_Garten) { channel="mqtt:topic:mosquitto:shelly_pool:StatusPool" }
+
+Switch TR_Hochbeet "Bewässerung Hochbeet"                     <faucet>           (ADM_Shelly,EG_Garten) { channel="mqtt:topic:mosquitto:shelly_hochbeet:StatusHochbeet" }
+Switch TR_Hochbeet_10m "Bewässerung Hochbeet 10min"           <faucet>           (ADM_Shelly,EG_Garten)
+Switch TR_Hochbeet_Automatik "Bewässerung Hochbeet Automatik" <faucet>           (ADM_Shelly,EG_Garten,gMapDB)

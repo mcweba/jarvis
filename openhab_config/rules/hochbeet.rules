@@ -1,0 +1,27 @@
+var Timer hochbeet_timer = null
+
+rule "Hochbeet Bewässerung 10min"
+
+when
+	Item TR_Hochbeet_10m changed
+then
+    logInfo("hochbeet.rules", "Starte Hochbeet Bewässerung für 10 Minuten")
+    hochbeet_timer?.cancel
+    TR_Hochbeet.sendCommand(ON)
+    TR_Hochbeet_10m.postUpdate(OFF)
+    hochbeet_timer = createTimer( now.plusMinutes(10), [ |
+        TR_Hochbeet.sendCommand(OFF)
+        hochbeet_timer = null
+    ])          
+end
+
+rule "Hochbeet Bewässerung Automatik"
+
+when   
+    Time cron "0 15 9 * * ?"
+then
+    if(TR_Hochbeet_Automatik.state != ON) {
+        return;
+    }
+    TR_Hochbeet_10m.sendCommand(ON)
+end

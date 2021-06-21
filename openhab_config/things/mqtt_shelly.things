@@ -20,3 +20,9 @@ Thing mqtt:topic:mosquitto:shelly_pool  "MQTT Thing: Shelly Pool" (mqtt:broker:m
     Channels:
         Type switch : StatusPool "EIN/AUS" [ stateTopic="shellies/shelly_pool/relay/0", on="on", off="off", commandTopic="shellies/shelly_pool/relay/0/command", on="on", off="off" ]
 }
+
+Thing mqtt:topic:mosquitto:shelly_hochbeet  "MQTT Thing: Shelly Hochbeet" (mqtt:broker:mosquitto) @ "Garten"
+{
+    Channels:
+        Type switch : StatusHochbeet "EIN/AUS" [ stateTopic="shellies/shelly_hochbeet/relay/0", on="on", off="off", commandTopic="shellies/shelly_hochbeet/relay/0/command", on="on", off="off" ]
+}
