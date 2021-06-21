@@ -1,4 +1,6 @@
 Thing sonos:CONNECT:Wohnzimmer [ udn="RINCON_949F3EB1848601400", refresh=60]
+Thing sonos:PLAY1:Badezimmer [ udn="RINCON_5CAAFDB005C801400", refresh=60]
 Thing sonos:PLAY1:Kueche [ udn="RINCON_7828CA6BB27401400", refresh=60]
 Thing sonos:PLAY1:Levio [ udn="RINCON_7828CA6BB21801400", refresh=60]
+Thing sonos:PLAY1:Jara [ udn="RINCON_5CAAFD70446401400", refresh=60]
 Thing sonos:PLAY1:Buero [ udn="RINCON_7828CA2F06CE01400", refresh=60]

@@ -6,7 +6,6 @@
     <tns:Fixed month="JANUARY" day="14" descriptionPropertiesKey="WASTE" />
     <tns:Fixed month="JANUARY" day="21" descriptionPropertiesKey="WASTE" />
     <tns:Fixed month="JANUARY" day="28" descriptionPropertiesKey="WASTE" />
-    <tns:Fixed month="FEBRUARY" day="3" descriptionPropertiesKey="BIO" />
     <tns:Fixed month="FEBRUARY" day="4" descriptionPropertiesKey="WASTE" />
     <tns:Fixed month="FEBRUARY" day="8" descriptionPropertiesKey="BIO" />
     <tns:Fixed month="FEBRUARY" day="11" descriptionPropertiesKey="WASTE" />

@@ -12,6 +12,16 @@ Number Levio_Sonos_Vol_3_double "[%d]"   <soundvolume>   (Admin, gMapDB)
 Number Levio_Sonos_Vol_4_single "[%d]"   <soundvolume>   (Admin, gMapDB)
 Number Levio_Sonos_Vol_4_double "[%d]"   <soundvolume>   (Admin, gMapDB)
 
+String Badezimmer_Sonos_Playlist                "Playlist [%s]"             <sonos_favorite>     (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:playlist"}
+Switch Badezimmer_Sonos_ClearQueue              "ClearQueue"                <sonos_clearqueue>   (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:clearqueue"}
+Dimmer Badezimmer_Sonos_Volume                  "Lautstärke"                <soundvolume>        (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:volume"}
+Player Badezimmer_Sonos_Control                 "Control"                   <sonos_control>      (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:control"}
+Switch Badezimmer_Sonos_Stop                    "Stop"                      <sonos_stop>         (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:stop", autoupdate="false"}
+String Badezimmer_Sonos_State                   "State [%s]"                <sonos_state>        (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:state"}
+String Badezimmer_Sonos_Radio                   "Radio [%s]"                <sonos_radio>        (OG_Badezimmer)            {channel="sonos:PLAY1:Badezimmer:radio"}
+String Badezimmer_Sonos_Change_Radio
+Number Badezimmer_Sonos_Change_Volume
+
 String Buero_Sonos_Playlist                "Playlist [%s]"             <sonos_favorite>     (EG_Buero)            {channel="sonos:PLAY1:Buero:playlist"}
 Switch Buero_Sonos_ClearQueue              "ClearQueue"                <sonos_clearqueue>   (EG_Buero)            {channel="sonos:PLAY1:Buero:clearqueue"}
 Dimmer Buero_Sonos_Volume                  "Lautstärke"                <soundvolume>        (EG_Buero)            {channel="sonos:PLAY1:Buero:volume"}

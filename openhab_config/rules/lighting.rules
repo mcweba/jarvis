@@ -36,7 +36,7 @@ then
     
     if(GR_Aqara_Contact.state == OPEN){
         GR_Shelly_Switch.sendCommand(ON)
-        garderobe_timer = createTimer( now.plusMinutes(1), [ |
+        garderobe_timer = createTimer( now.plusMinutes(5), [ |
             logInfo("lighting.rules", "Garderobe mehr als 5 Minuten offen")
             GR_Shelly_Switch.sendCommand(OFF)
             garderobe_timer = null
@@ -47,18 +47,18 @@ then
     }
 end
 
-rule "Weihnachtsbeleuchtung einschalten"
+// rule "Weihnachtsbeleuchtung einschalten"
 
-when   
-    Time cron "0 45 16 * * ?" or Time cron "0 0 6 * * ?"
-then
-    TR_Beleuchtung.sendCommand(ON)
-end
+// when   
+//     Time cron "0 45 16 * * ?" or Time cron "0 0 6 * * ?"
+// then
+//     TR_Beleuchtung.sendCommand(ON)
+// end
 
-rule "Weihnachtsbeleuchtung ausschalten"
+// rule "Weihnachtsbeleuchtung ausschalten"
 
-when   
-    Time cron "0 15 0 * * ?" or Time cron "0 0 8 * * ?"
-then
-    TR_Beleuchtung.sendCommand(OFF)
-end
+// when   
+//     Time cron "0 15 0 * * ?" or Time cron "0 0 8 * * ?"
+// then
+//     TR_Beleuchtung.sendCommand(OFF)
+// end

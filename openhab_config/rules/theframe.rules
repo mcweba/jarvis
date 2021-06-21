@@ -1,15 +1,15 @@
-rule "TheFrame einschalten"
+//rule "TheFrame einschalten"
 
-when   
-    Time cron "0 15 9 * * ?"
-then
-    TV_ArtMode.sendCommand(ON)
-end
+//when   
+//    Time cron "0 15 9 * * ?"
+//then
+//    TV_ArtMode.sendCommand(ON)
+//end
 
-rule "TheFrame ausschalten"
+//rule "TheFrame ausschalten"
 
-when   
-    Time cron "0 55 20 * * ?"
-then
-    TV_ArtMode.sendCommand(OFF)
-end
+//when   
+//    Time cron "0 55 20 * * ?"
+//then
+//    TV_ArtMode.sendCommand(OFF)
+//end

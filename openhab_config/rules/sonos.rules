@@ -117,3 +117,37 @@ then
 		}
 	}
 end
+
+rule "Badezimmer change radio station"
+
+when
+	Item Badezimmer_Sonos_Change_Radio received command
+then
+	if (Badezimmer_Sonos_State.state == "PLAYING") {
+		logInfo("sonos.rules", "stopping radio in Badezimmer")
+		sendCommand(Badezimmer_Sonos_Control, "PAUSE")
+	} else {
+	  	Badezimmer_Sonos_Volume.sendCommand(12)
+		if (Badezimmer_Sonos_Change_Radio.state == "SRF3") {
+			logInfo("sonos.rules", "changing radio state in Badezimmer to SRF 3")
+			Badezimmer_Sonos_Radio.sendCommand("SRF3")
+		}
+
+		if (Badezimmer_Sonos_Change_Radio.state == "SwissPop") {
+			logInfo("sonos.rules", "changing radio state in Badezimmer to SwissPop")
+			Badezimmer_Sonos_Radio.sendCommand("Radio Swiss Pop (Top 40/Pop)")
+		}
+	}
+end
+
+rule "Badezimmer change volume"
+
+when
+	Item Badezimmer_Sonos_Change_Volume received command
+then
+	var Number currentVolume = Badezimmer_Sonos_Volume.state as DecimalType
+	var Number change = Badezimmer_Sonos_Change_Volume.state as DecimalType
+	var Number newVolume = currentVolume + change
+	logInfo("sonos.rules", "changing volume in Badezimmer from " + currentVolume + " to " + newVolume)
+	Badezimmer_Sonos_Volume.sendCommand(newVolume)
+end

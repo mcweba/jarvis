@@ -1,2 +1,6 @@
 Number  MyStrom_Waschmaschine_Power	"Power Waschmaschine [%.1f]" <energy> (ADM_UG)	{http="<[mystrom_waschmaschine:5000:JS(power_as_int.js)]"}
 Number  MyStrom_Waschmaschine_State  "Waschmaschine Status [MAP(waschmaschine_state.map):%s]"  <energy> (ADM_UG)
+
+String MyStrom_Button2_Single
+String MyStrom_Button2_Double
+String MyStrom_Button2_Long
