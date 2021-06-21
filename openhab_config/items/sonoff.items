@@ -17,10 +17,3 @@ Switch WK_Sonoff_State          "Weinkeller Status"             <energy>        
 Number WK_Sonoff_RSSI           "Weinkeller WiFi [%d %%]"       <qualityofservice>      (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_weinkeller:RSSISonoffWeinkeller" }
 String WK_Sonoff_Uptime         "Weinkeller Uptime [%s]"        <clock>                 (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_weinkeller:UptimeSonoffWeinkeller" }
 String WK_Sonoff_Firmware       "Weinkeller Firmware [%s]"      <firmware>              (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_weinkeller:FirmwareSonoffWeinkeller" }
-
-Switch PL_Sonoff_State          "Pool Status"                   <energy>                (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_pool:ReachableSonoffPool" }
-Number PL_Sonoff_RSSI           "Pool WiFi [%d %%]"             <qualityofservice>      (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_pool:RSSISonoffPool" }
-String PL_Sonoff_Uptime         "Pool Uptime [%s]"              <clock>                 (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_pool:UptimeSonoffPool" }
-String PL_Sonoff_Firmware       "Pool Firmware [%s]"            <firmware>              (ADM_Sonoff)                { channel="mqtt:topic:mosquitto:sonoff_pool:FirmwareSonoffPool" }
-Switch PL_Filter                "Filter"                        <pump>                  (ADM_Sonoff,EG_Pool,gMapDB) { channel="mqtt:topic:mosquitto:sonoff_pool:StatusSonoffPool" }
-Number PL_Temperatur            "Temperatur [%.1f °C]"          <temperature>           (EG_Pool)                   { channel="mqtt:topic:mosquitto:sonoff_pool:TemperatureSonoffPool" }

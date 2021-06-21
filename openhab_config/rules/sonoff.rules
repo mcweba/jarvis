@@ -24,19 +24,3 @@ then
         }        
     }
 end
-
-rule "Pool: Filter einschalten"
-
-when   
-    Time cron "0 0 1 * * ?"
-then
-    PL_Filter.sendCommand(ON)
-end
-
-rule "Pool: Filter ausschalten"
-
-when   
-    Time cron "0 0 8 * * ?"
-then
-    PL_Filter.sendCommand(OFF)
-end

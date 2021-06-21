@@ -8,3 +8,5 @@ Switch GR_Shelly_State "Shelly Garderobe Status"              <energy>          
 Number GR_Shelly_RSSI "Shelly Garderobe WiFi Empfang [%d %%]" <qualityofservice> (ADM_Shelly)           { channel="mqtt:topic:mosquitto:shelly_garderobe:RSSIShellyGarderobe" }
 String GR_Shelly_Uptime "Shelly Garderobe Uptime [%s]"        <clock>            (ADM_Shelly)           { channel="mqtt:topic:mosquitto:shelly_garderobe:UptimeShellyGarderobe" }
 String GR_Shelly_Firmware "Shelly Garderobe Firmware [%s]"    <firmware>         (ADM_Shelly)           { channel="mqtt:topic:mosquitto:shelly_garderobe:FirmwareShellyGarderobe" }
+
+Switch TR_Pool "Pool Pumpe"                                   <flow>             (ADM_Shelly,EG_Garten) { channel="mqtt:topic:mosquitto:shelly_pool:StatusPool" }
